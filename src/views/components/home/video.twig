@@ -1,0 +1,22 @@
+{#  LUMINA — Immersive video block (home.video). Uses lite YouTube facade
+    (no heavy iframe until clicked) to protect Lighthouse. The lite-youtube
+    web component assets are loaded lazily ONLY on pages using this block. #}
+{% if component.value('youtube_id') %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lite-youtube-embed@0.3.2/src/lite-yt-embed.css"/>
+    <script defer src="https://cdn.jsdelivr.net/npm/lite-youtube-embed@0.3.2/src/lite-yt-embed.js"></script>
+{% endif %}
+<section class="lumina-container lumina-section" data-reveal>
+    {% if component.value('title') %}
+        {% include 'partials.section-head' with {title: component.value('title'), subtitle: component.value('subtitle')} %}
+    {% endif %}
+    <div class="lumina-video">
+        {% if component.value('youtube_id') %}
+            <lite-youtube videoid="{{ component.value('youtube_id') }}"
+                          style="background-image:url('{{ component.value('poster') ?: 'https://i.ytimg.com/vi/'~component.value('youtube_id')~'/maxresdefault.jpg' }}')"
+                          playlabel="{{ component.value('title','Play') }}"></lite-youtube>
+        {% elseif component.value('poster') %}
+            <img src="{{ component.value('poster') }}" alt="{{ component.value('title') }}"
+                 width="1280" height="720" loading="lazy" decoding="async" class="w-full"/>
+        {% endif %}
+    </div>
+</section>

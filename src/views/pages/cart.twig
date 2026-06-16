@@ -1,0 +1,68 @@
+{#
+=====================================================================
+  LUMINA — Cart Page  (pages/cart.twig)
+  ---------------------------------------------------------------
+  Full cart page. NOTE: the primary cart experience is the AJAX mini
+  DRAWER (Salla <salla-cart-summary> + cart::open event, styled in
+  lumina.scss) so the buying journey is never interrupted. This page
+  is the fallback / full review screen.
+  • Free-shipping progress bar, coupon, upsells, sticky summary.
+=====================================================================
+#}
+{% extends "layouts.master" %}
+
+{% block content %}
+<div class="lumina-container py-6 lg:py-10">
+    <h1 class="lumina-listing-title mb-6">{{ trans('cart.title','Your cart') }}</h1>
+
+    <div class="lumina-cart-grid">
+        {# ---------- Items ---------- #}
+        <div class="lumina-cart-items">
+            {# Free shipping progress #}
+            {% if theme.settings.get('free_shipping_threshold', 0) > 0 %}
+                <div class="lumina-free-ship" data-threshold="{{ theme.settings.get('free_shipping_threshold') }}">
+                    <div class="lumina-free-ship-text">
+                        <i class="sicon-truck-fast" aria-hidden="true"></i>
+                        <span data-free-ship-msg>{{ trans('cart.free_ship_progress','Add more to unlock free shipping') }}</span>
+                    </div>
+                    <div class="lumina-progress"><span class="lumina-progress-bar" style="width:0%"></span></div>
+                </div>
+            {% endif %}
+
+            <salla-cart-list></salla-cart-list>
+
+            {# Cross-sell #}
+            <section class="lumina-section" data-reveal>
+                {% include 'partials.section-head' with {title: trans('cart.you_may_add','Complete your order')} %}
+                <salla-products-slider source="latest" class="lumina-slider"></salla-products-slider>
+            </section>
+        </div>
+
+        {# ---------- Sticky summary ---------- #}
+        <aside class="lumina-cart-summary">
+            <div class="lumina-cart-summary-sticky">
+                <h2 class="text-lg font-bold mb-4">{{ trans('cart.summary','Order summary') }}</h2>
+
+                {% if store.settings.cart.apply_coupon_enabled %}
+                    <salla-coupon class="lumina-coupon"></salla-coupon>
+                {% endif %}
+
+                <salla-cart-summary-details></salla-cart-summary-details>
+
+                <salla-button onclick="salla.cart.submit()" width="wide" fill="solid" class="lumina-atc mt-4">
+                    {{ trans('cart.checkout','Proceed to checkout') }}
+                </salla-button>
+
+                <ul class="lumina-pdp-perks mt-4">
+                    <li><i class="sicon-shield-check" aria-hidden="true"></i> {{ trans('cart.secure','Secure encrypted checkout') }}</li>
+                    <li><i class="sicon-refresh-alt" aria-hidden="true"></i> {{ trans('cart.returns','Easy returns') }}</li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+    <script defer src="{{ 'cart.js' | asset }}"></script>
+{% endblock %}

@@ -1,0 +1,18 @@
+{#
+=====================================================================
+  LUMINA — Home Page  (pages/index.twig)
+  `{% component home %}` renders BOTH the Salla theme features AND the
+  custom components declared in twilight.json, in the order the
+  merchant arranges them in the Salla theme editor. This gives full
+  drag-and-drop section ordering with zero code.
+=====================================================================
+#}
+{% extends "layouts.master" %}
+
+{% block content %}
+    {% component home %}
+{% endblock %}
+
+{% block scripts %}
+    <script defer src="{{ 'home.js' | asset }}"></script>
+{% endblock %}

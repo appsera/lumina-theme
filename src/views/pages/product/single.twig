@@ -1,0 +1,157 @@
+{#
+=====================================================================
+  LUMINA — Single Product Page  (pages/product/single.twig)
+  ---------------------------------------------------------------
+  Conversion-optimised, two-column on desktop, sticky purchase rail.
+  • Gallery (zoom + thumbnails) — left.
+  • Sticky buy box — right (stays in view while scrolling specs).
+  • Variant switching, price, SKU, stock are handled live by Salla
+    web components (<salla-product-options>, <salla-add-product-button>).
+  • Trust, delivery estimate, installments, urgency, FBT, bundles.
+=====================================================================
+#}
+{% extends "layouts.master" %}
+
+{% block content %}
+<div class="lumina-container py-6 lg:py-10">
+
+    {# Breadcrumb #}
+    <nav class="lumina-breadcrumb" aria-label="breadcrumb">
+        <a href="{{ store.url }}">{{ trans('common.home','Home') }}</a>
+        {% if product.category %}<span>/</span><a href="{{ product.category.url }}">{{ product.category.name }}</a>{% endif %}
+        <span>/</span><span aria-current="page">{{ product.name }}</span>
+    </nav>
+
+    <div class="lumina-pdp-grid">
+
+        {# ============ GALLERY ============ #}
+        <div class="lumina-pdp-gallery">
+            <salla-slider type="card" class="lumina-pdp-slider"
+                          loop="true" auto-play="false"
+                          {{ theme.settings.get('product_image_zoom', true) ? 'data-zoom' : '' }}>
+                <div slot="items">
+                    {% for image in product.images %}
+                        <div class="lumina-pdp-slide aspect-square">
+                            <img src="{{ image.url }}" alt="{{ image.alt ?: product.name }}"
+                                 width="900" height="900"
+                                 loading="{{ loop.first ? 'eager' : 'lazy' }}"
+                                 fetchpriority="{{ loop.first ? 'high' : 'auto' }}"
+                                 decoding="async" class="lumina-pdp-img"/>
+                        </div>
+                    {% endfor %}
+                </div>
+            </salla-slider>
+        </div>
+
+        {# ============ STICKY BUY BOX ============ #}
+        <div class="lumina-pdp-buybox">
+            <div class="lumina-pdp-sticky">
+
+                {% if product.brand.name %}
+                    <a href="{{ product.brand.url }}" class="lumina-card-brand">{{ product.brand.name }}</a>
+                {% endif %}
+
+                <h1 class="lumina-pdp-title">{{ product.name }}</h1>
+
+                {% if store.settings.rating_enabled and product.rating.count %}
+                <div class="lumina-card-rating">
+                    <salla-rating-stars stars="{{ product.rating.stars }}"></salla-rating-stars>
+                    <span class="text-sm text-[var(--color-muted)]">{{ product.rating.count }} {{ trans('product.reviews','reviews') }}</span>
+                </div>
+                {% endif %}
+
+                {# Live price (updates on variant switch) #}
+                <div class="lumina-pdp-price">
+                    <salla-price-display product="{{ product.id }}">
+                        <span class="lumina-price-now">{{ product.price | money }}</span>
+                        {% if product.is_on_sale %}
+                            <span class="lumina-price-was">{{ product.regular_price | money }}</span>
+                            {% if product.discount_percentage %}
+                                <span class="lumina-price-save">-{{ product.discount_percentage }}%</span>
+                            {% endif %}
+                        {% endif %}
+                    </salla-price-display>
+                    {% if product.is_taxable %}
+                        <span class="lumina-tax-note">{{ trans('product.tax_included','VAT included') }}</span>
+                    {% endif %}
+                </div>
+
+                {# Urgency / scarcity #}
+                {% if product.quantity is not null and product.quantity <= 10 and product.quantity > 0 %}
+                    <div class="lumina-urgency">
+                        <i class="sicon-fire" aria-hidden="true"></i>
+                        {{ trans('product.only_left','Only %d left in stock')|format(product.quantity) }}
+                    </div>
+                {% endif %}
+
+                {# Variant / options — instant switching handled by Salla #}
+                <salla-product-options product-id="{{ product.id }}" class="lumina-options"></salla-product-options>
+
+                {# Quantity + Add to cart #}
+                <div class="lumina-pdp-actions">
+                    <salla-quantity-input product-id="{{ product.id }}" max="{{ product.max_quantity }}"
+                                          class="lumina-qty"></salla-quantity-input>
+                    <salla-add-product-button product-id="{{ product.id }}" class="lumina-atc"
+                                              fill="solid" width="wide"></salla-add-product-button>
+                </div>
+
+                {# Delivery / installment / shipping incentives #}
+                <ul class="lumina-pdp-perks">
+                    {% if theme.settings.get('show_free_shipping_notice', true) %}
+                        <li><i class="sicon-truck-fast" aria-hidden="true"></i> {{ trans('product.free_shipping','Free shipping on qualifying orders') }}</li>
+                    {% endif %}
+                    {% if theme.settings.get('show_delivery_estimate', true) %}
+                        <li><i class="sicon-calendar" aria-hidden="true"></i> {{ trans('product.delivery_estimate','Estimated delivery 2–4 business days') }}</li>
+                    {% endif %}
+                    <li><i class="sicon-shield-check" aria-hidden="true"></i> {{ trans('product.secure_checkout','Secure checkout') }}</li>
+                </ul>
+
+                {# Installments (Tabby / Tamara via Salla) #}
+                <salla-installment product-id="{{ product.id }}" class="lumina-installment"></salla-installment>
+            </div>
+        </div>
+    </div>
+
+    {# ============ DESCRIPTION ============ #}
+    {% if product.description %}
+    <section class="lumina-section" data-reveal>
+        {% include 'partials.section-head' with {title: trans('product.details','Product details')} %}
+        <div class="lumina-prose">{{ product.description | raw }}</div>
+    </section>
+    {% endif %}
+
+    {# ============ FREQUENTLY BOUGHT TOGETHER / BUNDLES ============ #}
+    <salla-offer-modal></salla-offer-modal>
+
+    {# ============ RELATED ============ #}
+    <section class="lumina-section" data-reveal>
+        {% include 'partials.section-head' with {title: trans('product.you_may_like','You may also like')} %}
+        <salla-products-slider source="related" source-value="{{ product.id }}" class="lumina-slider"></salla-products-slider>
+    </section>
+
+    {# ============ REVIEWS ============ #}
+    {% if store.settings.rating_enabled %}
+    <section class="lumina-section" data-reveal>
+        {% include 'partials.section-head' with {title: trans('product.reviews','Customer reviews')} %}
+        <salla-comments comamentable-id="{{ product.id }}" comamentable-type="product"></salla-comments>
+    </section>
+    {% endif %}
+</div>
+
+{# ============ STICKY MOBILE ADD-TO-CART BAR ============ #}
+{% if theme.settings.get('sticky_add_to_cart', true) %}
+<div class="lumina-sticky-atc lg:hidden" id="lumina-sticky-atc" aria-hidden="true">
+    <div class="lumina-sticky-atc-info">
+        <span class="lumina-sticky-atc-name">{{ product.name }}</span>
+        <salla-price-display product="{{ product.id }}">
+            <span class="lumina-price-now">{{ product.price | money }}</span>
+        </salla-price-display>
+    </div>
+    <salla-add-product-button product-id="{{ product.id }}" fill="solid"></salla-add-product-button>
+</div>
+{% endif %}
+{% endblock %}
+
+{% block scripts %}
+    <script defer src="{{ 'product.js' | asset }}"></script>
+{% endblock %}

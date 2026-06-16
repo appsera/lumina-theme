@@ -1,0 +1,68 @@
+{#
+=====================================================================
+  LUMINA — Category / Product Listing  (pages/product/index.twig)
+  ---------------------------------------------------------------
+  • Filter rail (desktop) + filter drawer (mobile).
+  • Responsive grid: 2 cols mobile, 3 tablet, 4 desktop.
+  • Salla handles AJAX filtering/sorting/pagination.
+=====================================================================
+#}
+{% extends "layouts.master" %}
+
+{% block content %}
+<div class="lumina-container py-6 lg:py-10">
+
+    {# Category hero / breadcrumb #}
+    <header class="lumina-listing-head">
+        <nav class="lumina-breadcrumb" aria-label="breadcrumb">
+            <a href="{{ store.url }}">{{ trans('common.home','Home') }}</a>
+            <span>/</span><span aria-current="page">{{ page.title | raw }}</span>
+        </nav>
+        <h1 class="lumina-listing-title">{{ page.title | raw }}</h1>
+        {% if category.description %}
+            <p class="lumina-listing-desc">{{ category.description }}</p>
+        {% endif %}
+    </header>
+
+    <div class="lumina-listing-grid">
+
+        {# ---------- Filters ---------- #}
+        <aside class="lumina-filters" id="lumina-filters">
+            <div class="lumina-filters-head lg:hidden">
+                <strong>{{ trans('common.filters','Filters') }}</strong>
+                <button type="button" class="lumina-iconbtn" data-close-filters aria-label="close">
+                    <i class="sicon-cancel" aria-hidden="true"></i>
+                </button>
+            </div>
+            <salla-filters class="lumina-filters-body"></salla-filters>
+        </aside>
+
+        {# ---------- Products ---------- #}
+        <div class="lumina-listing-main">
+            <div class="lumina-listing-toolbar">
+                <button type="button" class="lumina-btn lumina-btn-ghost lg:hidden" data-open-filters>
+                    <i class="sicon-filter" aria-hidden="true"></i> {{ trans('common.filters','Filters') }}
+                </button>
+                <salla-products-list-actions class="ms-auto"></salla-products-list-actions>
+            </div>
+
+            <div class="lumina-product-grid">
+                {% for product in products %}
+                    {% include 'partials.product.card' with {product: product} %}
+                {% else %}
+                    <div class="lumina-empty">
+                        <img src="{{ 'images/s-empty.png' | asset }}" alt="" width="180" height="180" loading="lazy"/>
+                        <p>{{ trans('common.no_products','No products found') }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+
+            {{ products.links }}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+    <script defer src="{{ 'products.js' | asset }}"></script>
+{% endblock %}

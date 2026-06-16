@@ -1,0 +1,43 @@
+{#
+=====================================================================
+  LUMINA — Home Hero (custom component)
+  Mapped in twilight.json -> "path": "home.hero"
+  Immersive, responsive, zero-CLS (image has fixed ratio + priority).
+=====================================================================
+#}
+<section class="lumina-hero" data-reveal>
+    <div class="lumina-container">
+        <div class="lumina-hero-grid {{ component.value('layout','split') == 'centered' ? 'is-centered' : '' }}">
+            <div class="lumina-hero-copy">
+                {% if component.value('eyebrow') %}
+                    <span class="lumina-eyebrow">{{ component.value('eyebrow') }}</span>
+                {% endif %}
+                <h1 class="lumina-hero-title">{{ component.value('title', store.name) }}</h1>
+                {% if component.value('subtitle') %}
+                    <p class="lumina-hero-sub">{{ component.value('subtitle') }}</p>
+                {% endif %}
+                <div class="lumina-hero-actions">
+                    {% if component.value('cta_text') %}
+                        <a href="{{ component.value('cta_url', '#') }}" class="lumina-btn lumina-btn-primary">
+                            {{ component.value('cta_text') }}
+                        </a>
+                    {% endif %}
+                    {% if component.value('cta2_text') %}
+                        <a href="{{ component.value('cta2_url', '#') }}" class="lumina-btn lumina-btn-ghost">
+                            {{ component.value('cta2_text') }}
+                        </a>
+                    {% endif %}
+                </div>
+            </div>
+
+            {% if component.value('image') %}
+            <div class="lumina-hero-media">
+                <img src="{{ component.value('image') }}"
+                     alt="{{ component.value('title', store.name) }}"
+                     width="900" height="1000" fetchpriority="high" decoding="async"
+                     class="lumina-hero-img"/>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</section>

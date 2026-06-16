@@ -1,0 +1,206 @@
+{#
+=====================================================================
+  LUMINA — Premium Salla Twilight Theme
+  Master Layout  (src/views/layouts/master.twig)
+  ---------------------------------------------------------------
+  Architectural notes:
+  • Mobile-first, accessibility-first, performance-first shell.
+  • Critical CSS variables are injected inline (zero render-blocking
+    flash, zero CLS). Fonts use font-display:swap via Salla CDN.
+  • All visual tokens (color, radius, spacing, container, fonts) are
+    driven by `theme.settings` so merchants customise WITHOUT code.
+  • Hooks (`{% hook %}`) are kept intact — required by Salla for
+    SEO meta, tracking pixels, custom CSS/JS and app injections.
+  • JS is deferred & minimal. Alpine.js loaded only when a setting
+    requests it. No jQuery anywhere.
+=====================================================================
+#}
+<!DOCTYPE html>
+<html lang="{{ language.code }}" dir="{{ theme.is_rtl ? 'rtl' : 'ltr' }}"
+      class="{{ theme.settings.get('enable_dark_mode', false) ? 'supports-dark' : '' }}">
+<!-- بسم الله الرحمن الرحيم -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="{{ theme.color.primary }}">
+
+    {{ theme.settings.set('placeholder', 'images/placeholder.png') }}
+
+    {# ---- Preconnect to Salla CDNs early for faster first paint ---- #}
+    <link rel="preconnect" href="https://cdn.salla.network" crossorigin>
+    <link rel="preconnect" href="https://cdn.assets.salla.network" crossorigin>
+    <link rel="dns-prefetch" href="https://cdn.salla.network">
+
+    {# ---- Core interaction scripts: deferred, never render-blocking ---- #}
+    <script defer data-cfasync="false" crossorigin="anonymous" src="{{ 'product-card.js'|asset }}"></script>
+    <script defer src="{{ 'lumina.js'|asset }}"></script>
+    {% if theme.settings.get('enable_add_product_toast', true) %}
+        <script defer src="{{ 'add-product-toast.js'|asset }}"></script>
+    {% endif %}
+    {% if theme.settings.get('enable_alpine', true) %}
+        <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    {% endif %}
+
+    {% block head_scripts %}{% endblock %}
+
+    {# ---- Expose merchant settings to the runtime JS layer ---- #}
+    <script data-cfasync="false">
+        window.Lumina = {
+            headerSticky:      {{ theme.settings.get('header_is_sticky', true) | json_encode }},
+            bottomNav:         {{ theme.settings.get('mobile_bottom_nav', true) | json_encode }},
+            stickyAtc:         {{ theme.settings.get('sticky_add_to_cart', true) | json_encode }},
+            imageZoom:         {{ theme.settings.get('product_image_zoom', true) | json_encode }},
+            freeShippingTarget:{{ theme.settings.get('free_shipping_threshold', 0) | json_encode }},
+            animations:        {{ theme.settings.get('enable_animations', true) | json_encode }},
+            instantSearch:     {{ theme.settings.get('instant_search', true) | json_encode }}
+        };
+        window.can_access_wallet = {{ user.can_access_wallet | json_encode }};
+        window.enable_add_product_toast = "{{ theme.settings.get('enable_add_product_toast', true) }}";
+        window.notify_when_available_in_card = "{{ theme.settings.get('notify_when_available_in_card', true) }}";
+        {# Respect saved dark-mode preference before paint to avoid flicker #}
+        {% if theme.settings.get('enable_dark_mode', false) %}
+        (function(){try{var m=localStorage.getItem('lumina-theme');
+          if(m==='dark'||(m===null&&'{{ theme.settings.get('default_dark', false) }}'==='1'))
+          document.documentElement.classList.add('dark');}catch(e){}})();
+        {% endif %}
+    </script>
+
+    {% hook 'head:start' %}
+    {% hook head %}
+    {% block styles %}{% endblock %}
+
+    <link rel="stylesheet" href="{{ 'app.css' | asset }}">
+    <link rel="stylesheet" href="{{ theme.font.path|cdn }}"/>
+    <link rel="stylesheet" href="{{ 'fonts/sallaicons.css'|cdn }}"/>
+
+    {#
+      ----------------------------------------------------------------
+      CRITICAL DESIGN TOKENS — single source of truth.
+      Everything downstream (Tailwind arbitrary values, components)
+      reads from these CSS custom properties. Changing a merchant
+      setting re-skins the whole theme with zero layout shift.
+      ----------------------------------------------------------------
+    #}
+    {#
+      ----------------------------------------------------------------
+      STYLE PRESETS — one-click brand identities.
+      Each preset maps to an accent colour + corner radius. When the
+      merchant picks anything other than "custom", the preset wins;
+      otherwise their manual `accent_color` / `border_radius` apply.
+      The store's PRIMARY colour still comes from Salla's colour
+      feature (theme.color.primary) so brand colour is always honoured.
+      ----------------------------------------------------------------
+    #}
+    {% set preset = theme.settings.get('style_preset', 'emerald') %}
+    {% set presets = {
+        'emerald': {accent: '#0f5f53', radius: 16},
+        'onyx':    {accent: '#caa45d', radius: 6},
+        'rose':    {accent: '#e11d48', radius: 22},
+        'royal':   {accent: '#2563eb', radius: 12},
+        'sand':    {accent: '#a8744f', radius: 18},
+        'violet':  {accent: '#7c3aed', radius: 20}
+    } %}
+    {% set preset_accent = (preset != 'custom' and presets[preset] is defined) ? presets[preset].accent : theme.settings.get('accent_color', theme.color.primary) %}
+    {% set preset_radius = (preset != 'custom' and presets[preset] is defined) ? presets[preset].radius : theme.settings.get('border_radius', 16) %}
+    <style>
+        :root {
+            /* Typography */
+            --font-main: '{{ theme.font.name }}', system-ui, -apple-system, "Segoe UI", sans-serif;
+            --font-heading: '{{ theme.settings.get('heading_font', theme.font.name) }}', var(--font-main);
+
+            /* Brand colour system (auto-derived shades) */
+            --color-primary: {{ theme.color.primary }};
+            --color-primary-dark: {{ theme.color.darker(0.15) }};
+            --color-primary-light: {{ theme.color.lighter(0.15) }};
+            --color-primary-tint: {{ theme.color.lighter(0.85) }};
+            --color-primary-reverse: {{ theme.color.reverse_text }};
+            --color-accent: {{ preset_accent }};
+
+            /* Spatial system (merchant-tunable / preset-driven) */
+            --radius: {{ preset_radius }}px;
+            --radius-sm: calc(var(--radius) * 0.5);
+            --radius-lg: calc(var(--radius) * 1.5);
+            --container: {{ theme.settings.get('container_width', 1280) }}px;
+            --section-gap: {{ theme.settings.get('section_spacing', 64) }}px;
+
+            /* Premium elevation — soft, layered, never harsh */
+            --shadow-sm: 0 1px 2px rgba(17,24,39,.04), 0 1px 3px rgba(17,24,39,.06);
+            --shadow-md: 0 4px 12px rgba(17,24,39,.06), 0 2px 4px rgba(17,24,39,.04);
+            --shadow-lg: 0 18px 40px -12px rgba(17,24,39,.16);
+            --ease: cubic-bezier(.22,1,.36,1);
+        }
+        html.dark {
+            --color-bg: #0b0d12;
+            --color-surface: #14171f;
+            --color-text: #e7e9ee;
+            --color-muted: #9aa1ad;
+            color-scheme: dark;
+        }
+        html:not(.dark) {
+            --color-bg: #ffffff;
+            --color-surface: #ffffff;
+            --color-text: #0f1115;
+            --color-muted: #6b7280;
+        }
+    </style>
+
+    {# tracking services + merchant custom CSS injected here by Salla #}
+    {% hook 'head:end' %}
+</head>
+
+<body id="app"
+      class="lumina overflow-x-hidden bg-[var(--color-bg)] text-[var(--color-text)] antialiased
+      {% hook 'body:classes' %}
+      {{ theme.settings.get('footer_is_dark') ? ' footer-is-dark' : ' footer-is-light' }}
+      {{ theme.settings.get('topnav_is_dark') ? ' topnav-is-dark' : '' }}
+      {{ theme.settings.get('sticky_add_to_cart', true) ? ' is-sticky-product-bar' : '' }}
+      {{ theme.settings.get('mobile_bottom_nav', true) ? ' has-bottom-nav' : '' }}
+      {{ theme.settings.get('enable_animations', true) ? ' anim-on' : 'anim-off' }}">
+
+<noscript>
+    To get the full experience of this store please enable JavaScript.
+</noscript>
+
+{# Skip-link — accessibility requirement #}
+<a href="#main-content" class="lumina-skip-link">{{ trans('common.skip_to_content', 'Skip to content') }}</a>
+
+<div class="app-inner flex flex-col min-h-full">
+    {% hook 'body:start' %}
+    {% component 'header.header' %}
+
+    <main id="main-content" role="main"
+        {{ (page.slug == 'product.single' or page.slug starts with 'product.index') ? ' class="flex flex-col"' : '' }}>
+        {% block content %}{% endblock %}
+    </main>
+
+    {% component 'footer.footer' %}
+</div>
+
+{# Mobile native-style bottom navigation #}
+{% if theme.settings.get('mobile_bottom_nav', true) %}
+    {% include 'partials.mobile-bottom-nav' %}
+{% endif %}
+
+{# Custom AJAX mini-cart drawer (never reloads the page) #}
+{% include 'partials.mini-cart' %}
+
+{% hook 'body:end' %}
+
+{% if theme.settings.get('enable_add_product_toast', true) %}
+    <salla-add-product-toast></salla-add-product-toast>
+{% endif %}
+
+<script defer crossorigin="anonymous" src="{{ 'app.js' | asset }}"></script>
+
+{# ---- Twilight Web Components (provided by Salla runtime) ---- #}
+<salla-offer-modal></salla-offer-modal>
+<salla-search></salla-search>
+<salla-login-modal></salla-login-modal>
+{% if store.scope %}
+    <salla-scopes selection="{{ store.scope.display_as == 'popup' ? 'mandatory' : 'optional' }}"></salla-scopes>
+{% endif %}
+
+{% block scripts %}{% endblock %}
+</body>
+</html>

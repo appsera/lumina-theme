@@ -1,0 +1,22 @@
+{#  LUMINA — Order details (pages/customer/orders/single.twig)  #}
+{% extends "layouts.master" %}
+{% block content %}
+<div class="lumina-container py-6 lg:py-10">
+    <nav class="lumina-breadcrumb" aria-label="breadcrumb">
+        <a href="{{ link('profile') }}">{{ trans('common.account','Account') }}</a>
+        <span>/</span><a href="{{ link('orders.index') }}">{{ trans('account.orders','My Orders') }}</a>
+        <span>/</span><span aria-current="page">#{{ order.id }}</span>
+    </nav>
+    <h1 class="lumina-listing-title mb-6">{{ trans('account.order_no','Order') }} #{{ order.id }}</h1>
+
+    <div class="lumina-account-grid">
+        {% include 'partials.account-nav' with {active: 'orders'} %}
+        <div class="lumina-account-main">
+            <div class="lumina-card-panel">
+                {# Salla renders the full order timeline, items, totals, invoice, actions #}
+                <salla-order-details order-id="{{ order.id }}"></salla-order-details>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

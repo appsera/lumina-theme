@@ -1,0 +1,9 @@
+{% extends "layouts.master" %}
+{% block content %}
+<div class="lumina-container py-8 lg:py-12">
+    <article class="lumina-prose mx-auto">
+        <h1 class="lumina-listing-title mb-6">{{ page.title | raw }}</h1>
+        {{ page.content | raw }}
+    </article>
+</div>
+{% endblock %}

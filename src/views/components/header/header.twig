@@ -1,0 +1,104 @@
+{#
+=====================================================================
+  LUMINA — Premium Sticky Header  (components/header/header.twig)
+  ---------------------------------------------------------------
+  • Glass, sticky, condenses on scroll (handled in lumina.js).
+  • Salla web components used for live data: <salla-cart-summary>,
+    <salla-search>, <salla-localization-bar>.
+  • Mega menu is desktop-only & lazy (renders markup but is hidden
+    on mobile via CSS, so no JS cost on small screens).
+  • Every icon button is a 44px+ touch target (a11y / thumb-zone).
+=====================================================================
+#}
+<header id="lumina-header"
+        class="lumina-header sticky-capable z-50 w-full transition-all duration-300"
+        data-sticky="{{ theme.settings.get('header_is_sticky', true) ? '1' : '0' }}">
+
+    {# ---------- Announcement / promo bar ---------- #}
+    {% if theme.settings.get('topbar_text') %}
+    <div class="lumina-topbar text-center text-xs sm:text-sm py-2 px-4 bg-[var(--color-primary)] text-[var(--color-primary-reverse)]">
+        <span class="opacity-95">{{ theme.settings.get('topbar_text') }}</span>
+        {% if theme.settings.get('topbar_link') %}
+            <a href="{{ theme.settings.get('topbar_link') }}" class="underline underline-offset-2 font-semibold ms-1">
+                {{ theme.settings.get('topbar_cta', 'Shop now') }}
+            </a>
+        {% endif %}
+    </div>
+    {% endif %}
+
+    {# ---------- Main bar ---------- #}
+    <div class="lumina-header-bar backdrop-blur-xl">
+        <div class="lumina-container flex items-center gap-3 sm:gap-6 h-16 sm:h-20">
+
+            {# Mobile menu trigger #}
+            <button type="button" class="lumina-iconbtn lg:hidden" aria-label="{{ trans('common.menu','Menu') }}"
+                    onclick="salla.event.dispatch('menu::open')">
+                <i class="sicon-menu text-2xl" aria-hidden="true"></i>
+            </button>
+
+            {# Logo — fixed dimensions to guarantee zero CLS #}
+            <a href="{{ store.url }}" class="lumina-logo shrink-0" aria-label="{{ store.name }}">
+                {% if store.logo %}
+                    <img src="{{ store.logo }}" alt="{{ store.name }}"
+                         width="150" height="48" loading="eager" fetchpriority="high"
+                         class="h-9 sm:h-11 w-auto object-contain"/>
+                {% else %}
+                    <span class="text-xl sm:text-2xl font-bold tracking-tight">{{ store.name }}</span>
+                {% endif %}
+            </a>
+
+            {# Desktop primary navigation + mega menu #}
+            <nav class="hidden lg:flex items-center gap-1 flex-1" aria-label="{{ trans('common.main_nav','Main') }}">
+                <salla-menu menu="header" class="lumina-menu"></salla-menu>
+            </nav>
+
+            {# Instant search (desktop inline) #}
+            <div class="hidden md:flex flex-1 lg:flex-none lg:w-72 xl:w-96">
+                <button type="button"
+                        class="lumina-search-trigger group w-full flex items-center gap-3 h-11 px-4 rounded-full
+                               border border-black/10 dark:border-white/10 text-[var(--color-muted)]
+                               hover:border-[var(--color-primary)] transition-colors"
+                        onclick="salla.event.dispatch('search::open')">
+                    <i class="sicon-search text-lg" aria-hidden="true"></i>
+                    <span class="text-sm">{{ trans('common.search_placeholder','Search products, brands…') }}</span>
+                </button>
+            </div>
+
+            {# Action cluster #}
+            <div class="flex items-center gap-1 sm:gap-2 ms-auto">
+                {# Mobile search #}
+                <button type="button" class="lumina-iconbtn md:hidden" aria-label="{{ trans('common.search','Search') }}"
+                        onclick="salla.event.dispatch('search::open')">
+                    <i class="sicon-search text-2xl" aria-hidden="true"></i>
+                </button>
+
+                {# Language / currency switcher #}
+                {% if store.settings.is_multilingual or store.settings.currencies_enabled %}
+                    <salla-localization-bar class="hidden sm:block"></salla-localization-bar>
+                {% endif %}
+
+                {# Account #}
+                <a href="{{ user.id ? link('profile') : 'javascript:salla.event.dispatch(\'login::open\')' }}"
+                   class="lumina-iconbtn" aria-label="{{ trans('common.account','Account') }}">
+                    <i class="sicon-user text-2xl" aria-hidden="true"></i>
+                </a>
+
+                {# Wishlist #}
+                <a href="{{ link('wishlist') }}" class="lumina-iconbtn relative" aria-label="{{ trans('common.wishlist','Wishlist') }}">
+                    <i class="sicon-heart text-2xl" aria-hidden="true"></i>
+                    <salla-wishlist-count class="lumina-badge"></salla-wishlist-count>
+                </a>
+
+                {# Cart — opens the AJAX mini drawer (never a full reload) #}
+                <button type="button" class="lumina-iconbtn relative" aria-label="{{ trans('common.cart','Cart') }}"
+                        onclick="salla.event.dispatch('cart::open')">
+                    <i class="sicon-shopping-bag text-2xl" aria-hidden="true"></i>
+                    <salla-cart-summary class="lumina-badge"></salla-cart-summary>
+                </button>
+            </div>
+        </div>
+    </div>
+</header>
+
+{# Mobile slide-in menu (Salla handles open/close via menu::open event) #}
+<salla-menu menu="header" mobile class="lumina-mobile-menu"></salla-menu>

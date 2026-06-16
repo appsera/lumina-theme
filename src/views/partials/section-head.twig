@@ -1,0 +1,18 @@
+{#
+  Reusable section header. Pass: title, subtitle, url, cta
+  {% include 'partials.section-head' with {title:'New', url:'...', cta:'View all'} %}
+#}
+<div class="lumina-section-head" data-reveal>
+    <div>
+        {% if subtitle is defined and subtitle %}
+            <span class="lumina-eyebrow">{{ subtitle }}</span>
+        {% endif %}
+        <h2 class="lumina-section-title">{{ title }}</h2>
+    </div>
+    {% if url is defined and url %}
+        <a href="{{ url }}" class="lumina-section-link">
+            {{ cta|default(trans('common.view_all','View all')) }}
+            <i class="sicon-arrow-{{ theme.is_rtl ? 'left' : 'right' }}" aria-hidden="true"></i>
+        </a>
+    {% endif %}
+</div>

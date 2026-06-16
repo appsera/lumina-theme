@@ -1,0 +1,23 @@
+{#  LUMINA — Wishlist (pages/customer/wishlist.twig)  #}
+{% extends "layouts.master" %}
+{% block content %}
+<div class="lumina-container py-6 lg:py-10">
+    <h1 class="lumina-listing-title mb-6">{{ trans('common.wishlist','Wishlist') }}</h1>
+    <div class="lumina-account-grid">
+        {% include 'partials.account-nav' with {active: 'wishlist'} %}
+        <div class="lumina-account-main">
+            <div class="lumina-product-grid lumina-product-grid--account">
+                {% for product in products %}
+                    {% include 'partials.product.card' with {product: product} %}
+                {% else %}
+                    <div class="lumina-empty">
+                        <img src="{{ 'images/s-empty.png' | asset }}" alt="" width="180" height="180" loading="lazy"/>
+                        <p>{{ trans('account.wishlist_empty','Your wishlist is empty') }}</p>
+                        <a href="{{ store.url }}" class="lumina-btn lumina-btn-primary mt-4">{{ trans('account.start_shopping','Start shopping') }}</a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,16 @@
+{#  LUMINA — Testimonials (home.testimonials) #}
+<section class="lumina-container lumina-section" data-reveal>
+    {% include 'partials.section-head' with {title: component.value('title', trans('home.reviews','What customers say')) } %}
+    <div class="lumina-testi-grid">
+        {% for t in component.value('items', []) %}
+            <figure class="lumina-testi-card">
+                <salla-rating-stars stars="{{ t['items.stars'] ?: 5 }}"></salla-rating-stars>
+                <blockquote class="lumina-testi-text">{{ t['items.text'] }}</blockquote>
+                <figcaption class="lumina-testi-author">
+                    <img src="{{ t['items.avatar'] }}" alt="{{ t['items.name'] }}" width="44" height="44" loading="lazy" class="rounded-full"/>
+                    <span>{{ t['items.name'] }}</span>
+                </figcaption>
+            </figure>
+        {% endfor %}
+    </div>
+</section>

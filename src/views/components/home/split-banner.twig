@@ -1,0 +1,16 @@
+{#  LUMINA — Split (dual) promo banner (home.split-banner) #}
+<section class="lumina-container lumina-section" data-reveal>
+    <div class="lumina-split">
+        {% for b in component.value('banners', []) %}
+            <a href="{{ b.url ?: '#' }}" class="lumina-split-card group">
+                <img src="{{ b.image }}" alt="{{ b.title }}"
+                     width="640" height="420" loading="lazy" decoding="async" class="lumina-split-img"/>
+                <div class="lumina-split-overlay">
+                    {% if b.eyebrow %}<span class="lumina-eyebrow" style="color:#fff">{{ b.eyebrow }}</span>{% endif %}
+                    <h3 class="lumina-split-title">{{ b.title }}</h3>
+                    {% if b.cta %}<span class="lumina-split-cta">{{ b.cta }} <i class="sicon-arrow-{{ theme.is_rtl ? 'left' : 'right' }}" aria-hidden="true"></i></span>{% endif %}
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+</section>

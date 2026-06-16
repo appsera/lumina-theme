@@ -1,0 +1,12 @@
+{#  LUMINA — Instagram-style gallery (home.gallery) #}
+<section class="lumina-container lumina-section" data-reveal>
+    {% include 'partials.section-head' with {title: component.value('title', '@'~store.username), subtitle: component.value('subtitle') } %}
+    <div class="lumina-gallery">
+        {% for g in component.value('items', []) %}
+            <a href="{{ g.url ?: '#' }}" class="lumina-gallery-item aspect-square group" target="_blank" rel="noopener">
+                <img src="{{ g.image }}" alt="" width="400" height="400" loading="lazy" decoding="async"/>
+                <span class="lumina-gallery-ico"><i class="sicon-instagram" aria-hidden="true"></i></span>
+            </a>
+        {% endfor %}
+    </div>
+</section>

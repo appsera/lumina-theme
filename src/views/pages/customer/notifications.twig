@@ -1,0 +1,28 @@
+{#  LUMINA — Notifications (pages/customer/notifications.twig)  #}
+{% extends "layouts.master" %}
+{% block content %}
+<div class="lumina-container py-6 lg:py-10">
+    <h1 class="lumina-listing-title mb-6">{{ trans('account.notifications','Notifications') }}</h1>
+    <div class="lumina-account-grid">
+        {% include 'partials.account-nav' with {active: 'notifications'} %}
+        <div class="lumina-account-main">
+            <div class="lumina-card-panel">
+                {% for n in notifications %}
+                    <div class="lumina-notif {{ n.is_read ? '' : 'is-unread' }}">
+                        <span class="lumina-notif-ico"><i class="sicon-bell" aria-hidden="true"></i></span>
+                        <div class="min-w-0">
+                            <p class="lumina-notif-text">{{ n.message }}</p>
+                            <span class="lumina-notif-time">{{ n.created_at }}</span>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="lumina-empty">
+                        <img src="{{ 'images/s-empty.png' | asset }}" alt="" width="160" height="160" loading="lazy"/>
+                        <p>{{ trans('account.no_notifications','No notifications yet') }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

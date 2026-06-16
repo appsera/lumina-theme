@@ -1,0 +1,10 @@
+{% extends "layouts.master" %}
+{% block content %}
+<div class="lumina-container py-12 text-center" data-reveal>
+    <span class="lumina-trust-ico mx-auto mb-4" style="width:72px;height:72px"><i class="sicon-check text-3xl"></i></span>
+    <h1 class="lumina-listing-title">{{ trans('thankyou.title','Thank you for your order!') }}</h1>
+    <p class="text-[var(--color-muted)] mt-2">{{ trans('thankyou.sub','Your order has been received and is being processed.') }}</p>
+    <salla-order-details></salla-order-details>
+    <a href="{{ store.url }}" class="lumina-btn lumina-btn-primary mt-6 inline-flex">{{ trans('thankyou.continue','Continue shopping') }}</a>
+</div>
+{% endblock %}

@@ -1,0 +1,28 @@
+{#  LUMINA — Brands listing (pages/brands/index.twig)  #}
+{% extends "layouts.master" %}
+{% block content %}
+<div class="lumina-container py-6 lg:py-10">
+    <header class="lumina-listing-head" data-reveal>
+        <span class="lumina-eyebrow">{{ trans('brands.eyebrow','Our partners') }}</span>
+        <h1 class="lumina-listing-title">{{ page.title | raw }}</h1>
+    </header>
+
+    <div class="lumina-brands-grid">
+        {% for brand in brands %}
+            <a href="{{ brand.url }}" class="lumina-brand-tile group" data-reveal aria-label="{{ brand.name }}">
+                <div class="lumina-brand-tile-logo">
+                    <img src="{{ brand.logo ?: brand.image }}" alt="{{ brand.name }}"
+                         width="200" height="120" loading="lazy" decoding="async"/>
+                </div>
+                <span class="lumina-brand-tile-name">{{ brand.name }}</span>
+            </a>
+        {% else %}
+            <div class="lumina-empty">
+                <img src="{{ 'images/s-empty.png' | asset }}" alt="" width="180" height="180" loading="lazy"/>
+                <p>{{ trans('brands.empty','No brands available') }}</p>
+            </div>
+        {% endfor %}
+    </div>
+    {{ brands.links }}
+</div>
+{% endblock %}

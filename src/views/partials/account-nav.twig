@@ -1,0 +1,36 @@
+{#
+  LUMINA — Customer account navigation (partials/account-nav.twig)
+  Pass `active` = profile | orders | wishlist | notifications | loyalty
+#}
+<aside class="lumina-account-nav">
+    <div class="lumina-account-user">
+        <span class="lumina-account-avatar">
+            {% if user.avatar %}
+                <img src="{{ user.avatar }}" alt="{{ user.name }}" width="56" height="56" loading="lazy"/>
+            {% else %}
+                <i class="sicon-user" aria-hidden="true"></i>
+            {% endif %}
+        </span>
+        <div class="min-w-0">
+            <strong class="block truncate">{{ user.name ?: trans('common.account','Account') }}</strong>
+            <span class="text-xs text-[var(--color-muted)] truncate">{{ user.email ?: user.mobile }}</span>
+        </div>
+    </div>
+    <nav class="lumina-account-links" aria-label="{{ trans('account.nav','Account navigation') }}">
+        {% set items = [
+            {key:'profile',       icon:'sicon-user',          label: trans('account.profile','Profile'),        url: link('profile')},
+            {key:'orders',        icon:'sicon-bag-happy',     label: trans('account.orders','My Orders'),       url: link('orders.index')},
+            {key:'wishlist',      icon:'sicon-heart',         label: trans('common.wishlist','Wishlist'),       url: link('wishlist')},
+            {key:'notifications', icon:'sicon-bell',          label: trans('account.notifications','Notifications'), url: link('notifications')},
+            {key:'loyalty',       icon:'sicon-award-ribbon',  label: trans('account.loyalty','Rewards'),        url: link('loyalty')}
+        ] %}
+        {% for it in items %}
+            <a href="{{ it.url }}" class="lumina-account-link {{ active == it.key ? 'is-active' : '' }}">
+                <i class="{{ it.icon }}" aria-hidden="true"></i><span>{{ it.label }}</span>
+            </a>
+        {% endfor %}
+        <a href="{{ link('logout') }}" class="lumina-account-link lumina-account-logout">
+            <i class="sicon-logout" aria-hidden="true"></i><span>{{ trans('account.logout','Logout') }}</span>
+        </a>
+    </nav>
+</aside>

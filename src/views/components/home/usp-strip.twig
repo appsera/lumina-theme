@@ -1,0 +1,16 @@
+{#  LUMINA — Store features / USP strip (home.usp-strip) #}
+<section class="lumina-usp-strip" data-reveal>
+  <div class="lumina-container">
+    <div class="lumina-usp-grid">
+        {% for f in component.value('items', []) %}
+            <div class="lumina-usp">
+                <span class="lumina-usp-ico"><i class="{{ f['items.icon'] ?: 'sicon-star' }}" aria-hidden="true"></i></span>
+                <div class="min-w-0">
+                    <strong class="lumina-usp-title">{{ f['items.title'] }}</strong>
+                    <span class="lumina-usp-sub">{{ f['items.subtitle'] }}</span>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+  </div>
+</section>

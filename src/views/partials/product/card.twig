@@ -1,0 +1,88 @@
+{#
+=====================================================================
+  LUMINA — Product Card  (partials/product/card.twig)
+  ---------------------------------------------------------------
+  Zero-CLS contract:
+    • Image wrapper has a locked aspect ratio (aspect-[3/4]).
+    • <img> has explicit width/height + loading="lazy".
+    • Title is line-clamped to keep every card the SAME height.
+  Conversion features: quick-add, wishlist, hover 2nd image,
+    discount + stock badges, rating, micro-interactions.
+  Salla web components do the heavy lifting (cart, wishlist).
+  Usage:  {% include 'partials.product.card' with {product: product} %}
+=====================================================================
+#}
+<custom-salla-product-card product-id="{{ product.id }}" class="lumina-card group">
+    <div class="lumina-card-inner">
+
+        {# ---------- Media ---------- #}
+        <div class="lumina-card-media aspect-[3/4]">
+            <a href="{{ product.url }}" class="block w-full h-full" aria-label="{{ product.name }}">
+                <img src="{{ product.image.url }}"
+                     alt="{{ product.image.alt ?: product.name }}"
+                     width="600" height="800" loading="lazy" decoding="async"
+                     class="lumina-card-img lumina-card-img--main"/>
+                {% if product.images[1] is defined %}
+                    <img src="{{ product.images[1].url }}"
+                         alt="{{ product.images[1].alt ?: product.name }}"
+                         width="600" height="800" loading="lazy" decoding="async"
+                         class="lumina-card-img lumina-card-img--hover"/>
+                {% endif %}
+            </a>
+
+            {# Badges #}
+            <div class="lumina-card-badges">
+                {% if product.is_on_sale %}
+                    <span class="lumina-badge-sale">{{ product.discount_percentage|default('') }}{{ product.discount_percentage ? '%' : trans('product.sale','Sale') }}</span>
+                {% endif %}
+                {% if product.status == 'out' %}
+                    <span class="lumina-badge-out">{{ trans('product.out_of_stock','Sold out') }}</span>
+                {% elseif product.quantity is not null and product.quantity <= 5 and product.quantity > 0 %}
+                    <span class="lumina-badge-low">{{ trans('product.low_stock','Only few left') }}</span>
+                {% endif %}
+            </div>
+
+            {# Wishlist (floating) #}
+            <salla-button shape="icon" fill="none" class="lumina-card-wish"
+                          onclick="salla.wishlist.toggle({{ product.id }})"
+                          aria-label="{{ trans('common.add_wishlist','Add to wishlist') }}">
+                <i class="sicon-heart" aria-hidden="true"></i>
+            </salla-button>
+
+            {# Quick add — slides up on hover (desktop) / always shown (mobile) #}
+            <div class="lumina-card-quickadd">
+                <salla-add-product-button product-id="{{ product.id }}"
+                                          class="w-full" fill="solid">
+                    {{ trans('product.quick_add','Quick add') }}
+                </salla-add-product-button>
+            </div>
+        </div>
+
+        {# ---------- Body ---------- #}
+        <div class="lumina-card-body">
+            {% if product.brand.name %}
+                <span class="lumina-card-brand">{{ product.brand.name }}</span>
+            {% endif %}
+
+            <h3 class="lumina-card-title">
+                <a href="{{ product.url }}">{{ product.name }}</a>
+            </h3>
+
+            {% if store.settings.rating_enabled and product.rating.count %}
+            <div class="lumina-card-rating" aria-label="{{ product.rating.stars }} / 5">
+                <salla-rating-stars stars="{{ product.rating.stars }}"></salla-rating-stars>
+                <span class="text-xs text-[var(--color-muted)]">({{ product.rating.count }})</span>
+            </div>
+            {% endif %}
+
+            <div class="lumina-card-price">
+                <salla-price-display product="{{ product.id }}">
+                    <span class="lumina-price-now">{{ product.price | money }}</span>
+                    {% if product.is_on_sale %}
+                        <span class="lumina-price-was">{{ product.regular_price | money }}</span>
+                    {% endif %}
+                </salla-price-display>
+            </div>
+        </div>
+    </div>
+</custom-salla-product-card>

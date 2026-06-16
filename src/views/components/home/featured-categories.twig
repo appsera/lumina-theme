@@ -1,0 +1,22 @@
+{#
+  LUMINA — Featured Categories grid (custom component: home.featured-categories)
+  Editable collection of category cards. Image ratio locked => zero CLS.
+#}
+<section class="lumina-container lumina-section" data-reveal>
+    {% include 'partials.section-head' with {
+        title: component.value('title', trans('home.shop_by_category','Shop by category')),
+        subtitle: component.value('subtitle')
+    } %}
+    <div class="lumina-cat-grid">
+        {% for item in component.value('items', []) %}
+            <a href="{{ item.url }}" class="lumina-cat-card group">
+                <div class="lumina-cat-media aspect-square">
+                    <img src="{{ item.image }}" alt="{{ item.title }}"
+                         width="400" height="400" loading="lazy" decoding="async"
+                         class="lumina-cat-img"/>
+                </div>
+                <span class="lumina-cat-title">{{ item.title }}</span>
+            </a>
+        {% endfor %}
+    </div>
+</section>

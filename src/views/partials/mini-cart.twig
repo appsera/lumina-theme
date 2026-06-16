@@ -1,0 +1,91 @@
+{#
+=====================================================================
+  LUMINA — Custom AJAX Mini-Cart Drawer  (partials/mini-cart.twig)
+  ---------------------------------------------------------------
+  A fully bespoke slide-in cart that NEVER reloads the page.
+  • Opens on `cart::open` (dispatched from header/bottom-nav).
+  • Items, totals & coupon are rendered by Salla web components
+    (<salla-cart-list>, <salla-cart-summary-details>) so data stays
+    100% in sync with the platform — we only own the premium shell.
+  • Free-shipping progress + cross-sell recommendations for AOV.
+  • Driven by tiny Alpine-free vanilla logic in lumina.js.
+=====================================================================
+#}
+<div id="lumina-mini-cart" class="lumina-drawer" aria-hidden="true" role="dialog"
+     aria-label="{{ trans('cart.title','Your cart') }}">
+
+    {# Backdrop #}
+    <div class="lumina-drawer-backdrop" data-cart-close></div>
+
+    {# Panel #}
+    <aside class="lumina-drawer-panel" role="document">
+
+        {# Header #}
+        <header class="lumina-drawer-head">
+            <h2 class="lumina-drawer-title">
+                {{ trans('cart.title','Your cart') }}
+                <salla-cart-summary class="lumina-drawer-count"></salla-cart-summary>
+            </h2>
+            <button type="button" class="lumina-iconbtn" data-cart-close
+                    aria-label="{{ trans('common.close','Close') }}">
+                <i class="sicon-cancel text-2xl" aria-hidden="true"></i>
+            </button>
+        </header>
+
+        {# Free-shipping progress #}
+        {% if theme.settings.get('free_shipping_threshold', 0) > 0 %}
+        <div class="lumina-free-ship lumina-free-ship--drawer" data-threshold="{{ theme.settings.get('free_shipping_threshold') }}">
+            <div class="lumina-free-ship-text">
+                <i class="sicon-truck-fast" aria-hidden="true"></i>
+                <span data-free-ship-msg>{{ trans('cart.free_ship_progress','Add more to unlock free shipping') }}</span>
+            </div>
+            <div class="lumina-progress"><span class="lumina-progress-bar" style="width:0%"></span></div>
+        </div>
+        {% endif %}
+
+        {# Scrollable body — Salla renders the live items here #}
+        <div class="lumina-drawer-body">
+            <salla-cart-list class="lumina-drawer-list"></salla-cart-list>
+
+            {# Empty state (shown via JS when cart is empty) #}
+            <div class="lumina-drawer-empty" data-cart-empty hidden>
+                <span class="lumina-trust-ico mx-auto" style="width:64px;height:64px">
+                    <i class="sicon-shopping-bag text-3xl" aria-hidden="true"></i>
+                </span>
+                <p class="font-semibold mt-3">{{ trans('cart.empty_title','Your cart is empty') }}</p>
+                <p class="text-sm text-[var(--color-muted)] mb-4">{{ trans('cart.empty_sub','Discover something you’ll love.') }}</p>
+                <button type="button" class="lumina-btn lumina-btn-primary" data-cart-close>
+                    {{ trans('account.start_shopping','Start shopping') }}
+                </button>
+            </div>
+
+            {# Cross-sell — boost AOV without leaving the drawer #}
+            <div class="lumina-drawer-crosssell" data-cart-crosssell>
+                <h3 class="lumina-drawer-subhead">{{ trans('cart.you_may_add','Complete your order') }}</h3>
+                <salla-products-slider source="latest" class="lumina-slider lumina-slider--mini"></salla-products-slider>
+            </div>
+        </div>
+
+        {# Sticky footer — totals + coupon + checkout #}
+        <footer class="lumina-drawer-foot" data-cart-foot>
+            {% if store.settings.cart.apply_coupon_enabled %}
+                <salla-coupon class="lumina-coupon lumina-coupon--drawer"></salla-coupon>
+            {% endif %}
+
+            <salla-cart-summary-details class="lumina-drawer-summary"></salla-cart-summary-details>
+
+            <salla-button onclick="salla.cart.submit()" width="wide" fill="solid"
+                          class="lumina-atc lumina-drawer-checkout">
+                {{ trans('cart.checkout','Proceed to checkout') }}
+            </salla-button>
+
+            <button type="button" class="lumina-drawer-continue" data-cart-close>
+                {{ trans('cart.continue','Continue shopping') }}
+            </button>
+
+            <ul class="lumina-drawer-trust">
+                <li><i class="sicon-shield-check" aria-hidden="true"></i> {{ trans('cart.secure','Secure encrypted checkout') }}</li>
+            </ul>
+        </footer>
+    </aside>
+</div>

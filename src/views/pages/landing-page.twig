@@ -1,0 +1,13 @@
+{#
+  LUMINA — Landing Page (pages/landing-page.twig)
+  Renders Salla's drag-and-drop landing builder blocks. Full-bleed,
+  no container constraint so merchant blocks control their own width.
+#}
+{% extends "layouts.master" %}
+{% block content %}
+    <div class="lumina-landing">
+        {% block landing_content %}
+            {{ page.content | raw }}
+        {% endblock %}
+    </div>
+{% endblock %}

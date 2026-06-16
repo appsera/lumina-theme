@@ -1,0 +1,16 @@
+{#  LUMINA — Full-width countdown CTA band (home.countdown-cta) #}
+<section class="lumina-countdown-band" data-reveal
+         {% if component.value('bg_image') %}style="background-image:linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.55)),url('{{ component.value('bg_image') }}')"{% endif %}>
+  <div class="lumina-container lumina-countdown-inner">
+        {% if component.value('eyebrow') %}<span class="lumina-eyebrow" style="color:#fff">{{ component.value('eyebrow') }}</span>{% endif %}
+        <h2 class="lumina-countdown-title">{{ component.value('title', trans('home.flash','Flash offers')) }}</h2>
+        {% if component.value('subtitle') %}<p class="lumina-countdown-sub">{{ component.value('subtitle') }}</p>{% endif %}
+        {% if component.value('ends_at') %}
+            <salla-count-down date="{{ component.value('ends_at') }}" end-text="{{ trans('home.ended','Ended') }}"
+                              class="lumina-countdown lumina-countdown--lg"></salla-count-down>
+        {% endif %}
+        {% if component.value('cta_text') %}
+            <a href="{{ component.value('cta_url','#') }}" class="lumina-btn lumina-btn-primary mt-2">{{ component.value('cta_text') }}</a>
+        {% endif %}
+  </div>
+</section>

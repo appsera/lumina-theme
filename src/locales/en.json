@@ -1,0 +1,104 @@
+{
+    "common": {
+        "skip_to_content": "Skip to content",
+        "menu": "Menu",
+        "main_nav": "Main navigation",
+        "mobile_nav": "Mobile navigation",
+        "search": "Search",
+        "search_placeholder": "Search products, brands…",
+        "account": "Account",
+        "wishlist": "Wishlist",
+        "cart": "Cart",
+        "home": "Home",
+        "view_all": "View all",
+        "filters": "Filters",
+        "no_products": "No products found",
+        "add_wishlist": "Add to wishlist",
+        "brands": "Brands",
+        "close": "Close"
+    },
+    "home": {
+        "shop_by_category": "Shop by category",
+        "featured": "Featured",
+        "brands": "Brands",
+        "limited": "Limited time",
+        "flash": "Flash offers",
+        "ended": "Ended",
+        "reviews": "What customers say",
+        "view_all": "View all"
+    },
+    "product": {
+        "sale": "Sale",
+        "out_of_stock": "Sold out",
+        "low_stock": "Only few left",
+        "quick_add": "Quick add",
+        "reviews": "Reviews",
+        "details": "Product details",
+        "you_may_like": "You may also like",
+        "only_left": "Only %d left in stock",
+        "tax_included": "VAT included",
+        "free_shipping": "Free shipping on qualifying orders",
+        "delivery_estimate": "Estimated delivery 2–4 business days",
+        "secure_checkout": "Secure checkout"
+    },
+    "cart": {
+        "title": "Your cart",
+        "summary": "Order summary",
+        "checkout": "Proceed to checkout",
+        "you_may_add": "Complete your order",
+        "free_ship_progress": "Add more to unlock free shipping",
+        "free_shipping_unlocked": "🎉 Free shipping unlocked!",
+        "secure": "Secure encrypted checkout",
+        "returns": "Easy returns",
+        "continue": "Continue shopping",
+        "empty_title": "Your cart is empty",
+        "empty_sub": "Discover something you’ll love."
+    },
+    "blog": {
+        "eyebrow": "Journal",
+        "min_read": "min read",
+        "empty": "No articles yet",
+        "share": "Share",
+        "comments": "Comments"
+    },
+    "brands": {
+        "eyebrow": "Our partners",
+        "empty": "No brands available"
+    },
+    "account": {
+        "nav": "Account navigation",
+        "profile": "Profile",
+        "orders": "My Orders",
+        "notifications": "Notifications",
+        "loyalty": "Rewards",
+        "logout": "Logout",
+        "order_no": "Order",
+        "items": "items",
+        "no_orders": "You have no orders yet",
+        "no_notifications": "No notifications yet",
+        "wishlist_empty": "Your wishlist is empty",
+        "start_shopping": "Start shopping"
+    },
+    "loyalty": {
+        "eyebrow": "Rewards",
+        "sub": "Earn points with every purchase and unlock exclusive perks."
+    },
+    "thankyou": {
+        "title": "Thank you for your order!",
+        "sub": "Your order has been received and is being processed.",
+        "continue": "Continue shopping"
+    },
+    "footer": {
+        "fast_delivery": "Fast Delivery",
+        "fast_delivery_sub": "Across the kingdom",
+        "secure_payment": "Secure Payment",
+        "secure_payment_sub": "100% protected",
+        "easy_returns": "Easy Returns",
+        "easy_returns_sub": "Hassle-free",
+        "support": "24/7 Support",
+        "support_sub": "Always here",
+        "newsletter_title": "Join the list",
+        "newsletter_sub": "Exclusive drops & offers, straight to your inbox.",
+        "rights": "All rights reserved."
+    }
+}

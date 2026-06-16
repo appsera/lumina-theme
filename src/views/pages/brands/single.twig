@@ -1,0 +1,33 @@
+{#  LUMINA — Single brand (pages/brands/single.twig)  #}
+{% extends "layouts.master" %}
+{% block content %}
+<div class="lumina-container py-6 lg:py-10">
+    <nav class="lumina-breadcrumb" aria-label="breadcrumb">
+        <a href="{{ store.url }}">{{ trans('common.home','Home') }}</a>
+        <span>/</span><a href="{{ link('brands') }}">{{ trans('common.brands','Brands') }}</a>
+        <span>/</span><span aria-current="page">{{ brand.name }}</span>
+    </nav>
+
+    <header class="lumina-brand-hero" data-reveal>
+        {% if brand.logo %}
+            <div class="lumina-brand-hero-logo">
+                <img src="{{ brand.logo }}" alt="{{ brand.name }}" width="160" height="100" loading="eager" decoding="async"/>
+            </div>
+        {% endif %}
+        <h1 class="lumina-listing-title">{{ brand.name }}</h1>
+        {% if brand.description %}<p class="lumina-listing-desc mx-auto">{{ brand.description }}</p>{% endif %}
+    </header>
+
+    <div class="lumina-product-grid">
+        {% for product in products %}
+            {% include 'partials.product.card' with {product: product} %}
+        {% else %}
+            <div class="lumina-empty">
+                <img src="{{ 'images/s-empty.png' | asset }}" alt="" width="180" height="180" loading="lazy"/>
+                <p>{{ trans('common.no_products','No products found') }}</p>
+            </div>
+        {% endfor %}
+    </div>
+    {{ products.links }}
+</div>
+{% endblock %}

@@ -1,0 +1,33 @@
+{#  LUMINA — Blog listing (pages/blog/index.twig)  #}
+{% extends "layouts.master" %}
+{% block content %}
+<div class="lumina-container py-6 lg:py-10">
+    <header class="lumina-listing-head" data-reveal>
+        <span class="lumina-eyebrow">{{ trans('blog.eyebrow','Journal') }}</span>
+        <h1 class="lumina-listing-title">{{ page.title | raw }}</h1>
+    </header>
+
+    <div class="lumina-blog-grid">
+        {% for article in articles %}
+            <article class="lumina-blog-card group" data-reveal>
+                <a href="{{ article.url }}" class="lumina-blog-media aspect-[16/10]">
+                    <img src="{{ article.image }}" alt="{{ article.title }}"
+                         width="640" height="400" loading="lazy" decoding="async" class="lumina-blog-img"/>
+                </a>
+                <div class="lumina-blog-body">
+                    {% if article.category %}<span class="lumina-card-brand">{{ article.category.name }}</span>{% endif %}
+                    <h2 class="lumina-blog-title"><a href="{{ article.url }}">{{ article.title }}</a></h2>
+                    <p class="lumina-blog-excerpt">{{ article.excerpt }}</p>
+                    <span class="lumina-blog-meta">{{ article.date }} · {{ article.reading_time ?: '3' }} {{ trans('blog.min_read','min read') }}</span>
+                </div>
+            </article>
+        {% else %}
+            <div class="lumina-empty">
+                <img src="{{ 'images/s-empty.png' | asset }}" alt="" width="180" height="180" loading="lazy"/>
+                <p>{{ trans('blog.empty','No articles yet') }}</p>
+            </div>
+        {% endfor %}
+    </div>
+    {{ articles.links }}
+</div>
+{% endblock %}

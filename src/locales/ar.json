@@ -1,0 +1,104 @@
+{
+    "common": {
+        "skip_to_content": "تخطٍ إلى المحتوى",
+        "menu": "القائمة",
+        "main_nav": "التنقل الرئيسي",
+        "mobile_nav": "تنقل الجوال",
+        "search": "بحث",
+        "search_placeholder": "ابحث عن المنتجات والماركات…",
+        "account": "حسابي",
+        "wishlist": "المفضلة",
+        "cart": "السلة",
+        "home": "الرئيسية",
+        "view_all": "عرض الكل",
+        "filters": "تصفية",
+        "no_products": "لا توجد منتجات",
+        "add_wishlist": "أضف للمفضلة",
+        "brands": "الماركات",
+        "close": "إغلاق"
+    },
+    "home": {
+        "shop_by_category": "تسوّق حسب التصنيف",
+        "featured": "منتجات مختارة",
+        "brands": "العلامات التجارية",
+        "limited": "لفترة محدودة",
+        "flash": "عروض سريعة",
+        "ended": "انتهى",
+        "reviews": "ماذا يقول عملاؤنا",
+        "view_all": "عرض الكل"
+    },
+    "product": {
+        "sale": "تخفيض",
+        "out_of_stock": "نفد",
+        "low_stock": "كمية محدودة",
+        "quick_add": "إضافة سريعة",
+        "reviews": "التقييمات",
+        "details": "تفاصيل المنتج",
+        "you_may_like": "قد يعجبك أيضاً",
+        "only_left": "بقي %d فقط في المخزون",
+        "tax_included": "شامل ضريبة القيمة المضافة",
+        "free_shipping": "شحن مجاني للطلبات المؤهلة",
+        "delivery_estimate": "التوصيل المتوقع 2–4 أيام عمل",
+        "secure_checkout": "دفع آمن"
+    },
+    "cart": {
+        "title": "سلة التسوق",
+        "summary": "ملخص الطلب",
+        "checkout": "إتمام الشراء",
+        "you_may_add": "أكمل طلبك",
+        "free_ship_progress": "أضف المزيد للحصول على شحن مجاني",
+        "free_shipping_unlocked": "🎉 حصلت على شحن مجاني!",
+        "secure": "دفع آمن ومشفّر",
+        "returns": "إرجاع سهل",
+        "continue": "متابعة التسوق",
+        "empty_title": "سلتك فارغة",
+        "empty_sub": "اكتشف ما ستحبّه."
+    },
+    "blog": {
+        "eyebrow": "المدونة",
+        "min_read": "دقيقة قراءة",
+        "empty": "لا توجد مقالات بعد",
+        "share": "مشاركة",
+        "comments": "التعليقات"
+    },
+    "brands": {
+        "eyebrow": "شركاؤنا",
+        "empty": "لا توجد ماركات متاحة"
+    },
+    "account": {
+        "nav": "تنقّل الحساب",
+        "profile": "الملف الشخصي",
+        "orders": "طلباتي",
+        "notifications": "الإشعارات",
+        "loyalty": "المكافآت",
+        "logout": "تسجيل الخروج",
+        "order_no": "الطلب",
+        "items": "عناصر",
+        "no_orders": "لا توجد طلبات بعد",
+        "no_notifications": "لا توجد إشعارات بعد",
+        "wishlist_empty": "قائمة مفضلتك فارغة",
+        "start_shopping": "ابدأ التسوّق"
+    },
+    "loyalty": {
+        "eyebrow": "المكافآت",
+        "sub": "اكسب نقاطاً مع كل عملية شراء واحصل على مزايا حصرية."
+    },
+    "thankyou": {
+        "title": "شكراً لطلبك!",
+        "sub": "تم استلام طلبك وجارٍ معالجته.",
+        "continue": "متابعة التسوّق"
+    },
+    "footer": {
+        "fast_delivery": "توصيل سريع",
+        "fast_delivery_sub": "لكل أنحاء المملكة",
+        "secure_payment": "دفع آمن",
+        "secure_payment_sub": "حماية 100%",
+        "easy_returns": "إرجاع سهل",
+        "easy_returns_sub": "بدون تعقيد",
+        "support": "دعم 24/7",
+        "support_sub": "نحن هنا دائماً",
+        "newsletter_title": "انضم لقائمتنا",
+        "newsletter_sub": "عروض وإصدارات حصرية مباشرة إلى بريدك.",
+        "rights": "جميع الحقوق محفوظة."
+    }
+}

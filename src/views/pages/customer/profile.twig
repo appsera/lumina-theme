@@ -1,0 +1,15 @@
+{#  LUMINA — Customer profile (pages/customer/profile.twig)  #}
+{% extends "layouts.master" %}
+{% block content %}
+<div class="lumina-container py-6 lg:py-10">
+    <h1 class="lumina-listing-title mb-6">{{ trans('account.profile','Profile') }}</h1>
+    <div class="lumina-account-grid">
+        {% include 'partials.account-nav' with {active: 'profile'} %}
+        <div class="lumina-account-main">
+            <div class="lumina-card-panel">
+                <salla-profile></salla-profile>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

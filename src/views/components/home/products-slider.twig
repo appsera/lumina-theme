@@ -1,0 +1,26 @@
+{#
+  LUMINA — Products Slider (custom component: home.products-slider)
+  Horizontal scroll-snap on mobile, grid on desktop. Uses Salla
+  <salla-products-slider> when source is a Salla collection, else
+  renders our own premium cards.
+#}
+<section class="lumina-container lumina-section" data-reveal>
+    {% include 'partials.section-head' with {
+        title: component.value('title', trans('home.featured','Featured')),
+        subtitle: component.value('subtitle'),
+        url: component.value('url'),
+        cta: component.value('cta')
+    } %}
+
+    {% if component.value('source') %}
+        <salla-products-slider source="{{ component.value('source') }}"
+                               source-value="{{ component.value('source_value') }}"
+                               class="lumina-slider"></salla-products-slider>
+    {% else %}
+        <div class="lumina-product-grid">
+            {% for product in products %}
+                {% include 'partials.product.card' with {product: product} %}
+            {% endfor %}
+        </div>
+    {% endif %}
+</section>

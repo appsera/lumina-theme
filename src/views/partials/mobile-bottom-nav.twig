@@ -1,0 +1,32 @@
+{#
+=====================================================================
+  LUMINA — Native-style mobile bottom navigation
+  • Thumb-zone, 56px height, safe-area aware (notch devices).
+  • Hidden ≥ lg. Auto-hides on scroll-down (lumina.js).
+=====================================================================
+#}
+<nav class="lumina-bottom-nav lg:hidden" aria-label="{{ trans('common.mobile_nav','Mobile navigation') }}">
+    <a href="{{ store.url }}" class="lumina-bn-item" aria-label="{{ trans('common.home','Home') }}">
+        <i class="sicon-home" aria-hidden="true"></i>
+        <span>{{ trans('common.home','Home') }}</span>
+    </a>
+    <button type="button" class="lumina-bn-item" onclick="salla.event.dispatch('search::open')" aria-label="{{ trans('common.search','Search') }}">
+        <i class="sicon-search" aria-hidden="true"></i>
+        <span>{{ trans('common.search','Search') }}</span>
+    </button>
+    <button type="button" class="lumina-bn-item lumina-bn-cart" onclick="salla.event.dispatch('cart::open')" aria-label="{{ trans('common.cart','Cart') }}">
+        <span class="lumina-bn-cart-ring relative">
+            <i class="sicon-shopping-bag" aria-hidden="true"></i>
+            <salla-cart-summary class="lumina-badge"></salla-cart-summary>
+        </span>
+        <span>{{ trans('common.cart','Cart') }}</span>
+    </button>
+    <a href="{{ link('wishlist') }}" class="lumina-bn-item relative" aria-label="{{ trans('common.wishlist','Wishlist') }}">
+        <i class="sicon-heart" aria-hidden="true"></i>
+        <span>{{ trans('common.wishlist','Wishlist') }}</span>
+    </a>
+    <a href="{{ user.id ? link('profile') : 'javascript:salla.event.dispatch(\'login::open\')' }}" class="lumina-bn-item" aria-label="{{ trans('common.account','Account') }}">
+        <i class="sicon-user" aria-hidden="true"></i>
+        <span>{{ trans('common.account','Account') }}</span>
+    </a>
+</nav>
