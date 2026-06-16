@@ -15,7 +15,7 @@
     {# Category hero / breadcrumb #}
     <header class="lumina-listing-head">
         <nav class="lumina-breadcrumb" aria-label="breadcrumb">
-            <a href="{{ store.url }}">{{ trans('common.home','Home') }}</a>
+            <a href="{{ store.url }}">{{ trans('common.home') }}</a>
             <span>/</span><span aria-current="page">{{ page.title | raw }}</span>
         </nav>
         <h1 class="lumina-listing-title">{{ page.title | raw }}</h1>
@@ -29,7 +29,7 @@
         {# ---------- Filters ---------- #}
         <aside class="lumina-filters" id="lumina-filters">
             <div class="lumina-filters-head lg:hidden">
-                <strong>{{ trans('common.filters','Filters') }}</strong>
+                <strong>{{ trans('common.filters') }}</strong>
                 <button type="button" class="lumina-iconbtn" data-close-filters aria-label="close">
                     <i class="sicon-cancel" aria-hidden="true"></i>
                 </button>
@@ -41,7 +41,7 @@
         <div class="lumina-listing-main">
             <div class="lumina-listing-toolbar">
                 <button type="button" class="lumina-btn lumina-btn-ghost lg:hidden" data-open-filters>
-                    <i class="sicon-filter" aria-hidden="true"></i> {{ trans('common.filters','Filters') }}
+                    <i class="sicon-filter" aria-hidden="true"></i> {{ trans('common.filters') }}
                 </button>
                 <salla-products-list-actions class="ms-auto"></salla-products-list-actions>
             </div>
@@ -52,7 +52,7 @@
                 {% else %}
                     <div class="lumina-empty">
                         <img src="{{ 'images/s-empty.png' | asset }}" alt="" width="180" height="180" loading="lazy"/>
-                        <p>{{ trans('common.no_products','No products found') }}</p>
+                        <p>{{ trans('common.no_products') }}</p>
                     </div>
                 {% endfor %}
             </div>

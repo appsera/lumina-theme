@@ -3,16 +3,16 @@
   <div class="lumina-container">
     <div class="lumina-flash-head">
         <div>
-            <span class="lumina-eyebrow lumina-eyebrow--accent">{{ trans('home.limited','Limited time') }}</span>
-            <h2 class="lumina-section-title">{{ component.value('title', trans('home.flash','Flash offers')) }}</h2>
+            <span class="lumina-eyebrow lumina-eyebrow--accent">{{ trans('home.limited') }}</span>
+            <h2 class="lumina-section-title">{{ (component.title|default(trans('home.flash'))) }}</h2>
         </div>
-        {% if component.value('ends_at') %}
-            <salla-count-down date="{{ component.value('ends_at') }}" end-text="{{ trans('home.ended','Ended') }}"
+        {% if component.ends_at %}
+            <salla-count-down date="{{ component.ends_at }}" end-text="{{ trans('home.ended') }}"
                               class="lumina-countdown"></salla-count-down>
         {% endif %}
     </div>
-    <salla-products-slider source="{{ component.value('source','tags') }}"
-                           source-value="{{ component.value('source_value') }}"
+    <salla-products-slider source="{{ (component.source|default('tags')) }}"
+                           source-value="{{ component.source_value }}"
                            class="lumina-slider"></salla-products-slider>
   </div>
 </section>

@@ -7,33 +7,33 @@
 #}
 <section class="lumina-hero" data-reveal>
     <div class="lumina-container">
-        <div class="lumina-hero-grid {{ component.value('layout','split') == 'centered' ? 'is-centered' : '' }}">
+        <div class="lumina-hero-grid {{ (component.layout|default('split')) == 'centered' ? 'is-centered' : '' }}">
             <div class="lumina-hero-copy">
-                {% if component.value('eyebrow') %}
-                    <span class="lumina-eyebrow">{{ component.value('eyebrow') }}</span>
+                {% if component.eyebrow %}
+                    <span class="lumina-eyebrow">{{ component.eyebrow }}</span>
                 {% endif %}
-                <h1 class="lumina-hero-title">{{ component.value('title', store.name) }}</h1>
-                {% if component.value('subtitle') %}
-                    <p class="lumina-hero-sub">{{ component.value('subtitle') }}</p>
+                <h1 class="lumina-hero-title">{{ (component.title|default(store.name)) }}</h1>
+                {% if component.subtitle %}
+                    <p class="lumina-hero-sub">{{ component.subtitle }}</p>
                 {% endif %}
                 <div class="lumina-hero-actions">
-                    {% if component.value('cta_text') %}
-                        <a href="{{ component.value('cta_url', '#') }}" class="lumina-btn lumina-btn-primary">
-                            {{ component.value('cta_text') }}
+                    {% if component.cta_text %}
+                        <a href="{{ (component.cta_url|default('#')) }}" class="lumina-btn lumina-btn-primary">
+                            {{ component.cta_text }}
                         </a>
                     {% endif %}
-                    {% if component.value('cta2_text') %}
-                        <a href="{{ component.value('cta2_url', '#') }}" class="lumina-btn lumina-btn-ghost">
-                            {{ component.value('cta2_text') }}
+                    {% if component.cta2_text %}
+                        <a href="{{ (component.cta2_url|default('#')) }}" class="lumina-btn lumina-btn-ghost">
+                            {{ component.cta2_text }}
                         </a>
                     {% endif %}
                 </div>
             </div>
 
-            {% if component.value('image') %}
+            {% if component.image %}
             <div class="lumina-hero-media">
-                <img src="{{ component.value('image') }}"
-                     alt="{{ component.value('title', store.name) }}"
+                <img src="{{ component.image }}"
+                     alt="{{ (component.title|default(store.name)) }}"
                      width="900" height="1000" fetchpriority="high" decoding="async"
                      class="lumina-hero-img"/>
             </div>

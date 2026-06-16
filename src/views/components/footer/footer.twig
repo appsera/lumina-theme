@@ -12,10 +12,10 @@
     <div class="lumina-trust border-y border-black/5 dark:border-white/5">
         <div class="lumina-container grid grid-cols-2 md:grid-cols-4 gap-6 py-8">
             {% set badges = [
-                {icon:'sicon-truck-fast', title: trans('footer.fast_delivery','Fast Delivery'), sub: trans('footer.fast_delivery_sub','Across the kingdom')},
-                {icon:'sicon-shield-check', title: trans('footer.secure_payment','Secure Payment'), sub: trans('footer.secure_payment_sub','100% protected')},
-                {icon:'sicon-refresh-alt', title: trans('footer.easy_returns','Easy Returns'), sub: trans('footer.easy_returns_sub','Hassle-free')},
-                {icon:'sicon-headset', title: trans('footer.support','24/7 Support'), sub: trans('footer.support_sub','Always here')}
+                {icon:'sicon-truck-fast', title: trans('footer.fast_delivery'), sub: trans('footer.fast_delivery_sub')},
+                {icon:'sicon-shield-check', title: trans('footer.secure_payment'), sub: trans('footer.secure_payment_sub')},
+                {icon:'sicon-refresh-alt', title: trans('footer.easy_returns'), sub: trans('footer.easy_returns_sub')},
+                {icon:'sicon-headset', title: trans('footer.support'), sub: trans('footer.support_sub')}
             ] %}
             {% for b in badges %}
             <div class="flex items-center gap-3">
@@ -34,8 +34,8 @@
     {% if theme.settings.get('show_newsletter', true) %}
     <div class="lumina-container py-12">
         <div class="lumina-newsletter relative overflow-hidden rounded-[var(--radius-lg)] p-8 sm:p-12 text-center">
-            <h2 class="text-2xl sm:text-3xl font-bold mb-2">{{ theme.settings.get('newsletter_title', trans('footer.newsletter_title','Join the list')) }}</h2>
-            <p class="text-[var(--color-muted)] mb-6 max-w-md mx-auto">{{ theme.settings.get('newsletter_sub', trans('footer.newsletter_sub','Exclusive drops & offers, straight to your inbox.')) }}</p>
+            <h2 class="text-2xl sm:text-3xl font-bold mb-2">{{ theme.settings.get('newsletter_title', trans('footer.newsletter_title')) }}</h2>
+            <p class="text-[var(--color-muted)] mb-6 max-w-md mx-auto">{{ theme.settings.get('newsletter_sub', trans('footer.newsletter_sub')) }}</p>
             <salla-newsletter class="max-w-md mx-auto block"></salla-newsletter>
         </div>
     </div>
@@ -71,7 +71,7 @@
     <div class="border-t border-black/5 dark:border-white/5">
         <div class="lumina-container flex flex-col sm:flex-row items-center justify-between gap-4 py-6">
             <p class="text-xs text-[var(--color-muted)]">
-                © {{ "now"|date("Y") }} {{ store.name }}. {{ trans('footer.rights','All rights reserved.') }}
+                © {{ "now"|date("Y") }} {{ store.name }}. {{ trans('footer.rights') }}
             </p>
             <salla-payments-banner class="opacity-90"></salla-payments-banner>
         </div>

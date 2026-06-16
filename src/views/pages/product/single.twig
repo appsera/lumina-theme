@@ -17,7 +17,7 @@
 
     {# Breadcrumb #}
     <nav class="lumina-breadcrumb" aria-label="breadcrumb">
-        <a href="{{ store.url }}">{{ trans('common.home','Home') }}</a>
+        <a href="{{ store.url }}">{{ trans('common.home') }}</a>
         {% if product.category %}<span>/</span><a href="{{ product.category.url }}">{{ product.category.name }}</a>{% endif %}
         <span>/</span><span aria-current="page">{{ product.name }}</span>
     </nav>
@@ -56,7 +56,7 @@
                 {% if store.settings.rating_enabled and product.rating.count %}
                 <div class="lumina-card-rating">
                     <salla-rating-stars stars="{{ product.rating.stars }}"></salla-rating-stars>
-                    <span class="text-sm text-[var(--color-muted)]">{{ product.rating.count }} {{ trans('product.reviews','reviews') }}</span>
+                    <span class="text-sm text-[var(--color-muted)]">{{ product.rating.count }} {{ trans('product.reviews') }}</span>
                 </div>
                 {% endif %}
 
@@ -72,7 +72,7 @@
                         {% endif %}
                     </salla-price-display>
                     {% if product.is_taxable %}
-                        <span class="lumina-tax-note">{{ trans('product.tax_included','VAT included') }}</span>
+                        <span class="lumina-tax-note">{{ trans('product.tax_included') }}</span>
                     {% endif %}
                 </div>
 
@@ -80,7 +80,7 @@
                 {% if product.quantity is not null and product.quantity <= 10 and product.quantity > 0 %}
                     <div class="lumina-urgency">
                         <i class="sicon-fire" aria-hidden="true"></i>
-                        {{ trans('product.only_left','Only %d left in stock')|format(product.quantity) }}
+                        {{ trans('product.only_left')|format(product.quantity) }}
                     </div>
                 {% endif %}
 
@@ -98,12 +98,12 @@
                 {# Delivery / installment / shipping incentives #}
                 <ul class="lumina-pdp-perks">
                     {% if theme.settings.get('show_free_shipping_notice', true) %}
-                        <li><i class="sicon-truck-fast" aria-hidden="true"></i> {{ trans('product.free_shipping','Free shipping on qualifying orders') }}</li>
+                        <li><i class="sicon-truck-fast" aria-hidden="true"></i> {{ trans('product.free_shipping') }}</li>
                     {% endif %}
                     {% if theme.settings.get('show_delivery_estimate', true) %}
-                        <li><i class="sicon-calendar" aria-hidden="true"></i> {{ trans('product.delivery_estimate','Estimated delivery 2–4 business days') }}</li>
+                        <li><i class="sicon-calendar" aria-hidden="true"></i> {{ trans('product.delivery_estimate') }}</li>
                     {% endif %}
-                    <li><i class="sicon-shield-check" aria-hidden="true"></i> {{ trans('product.secure_checkout','Secure checkout') }}</li>
+                    <li><i class="sicon-shield-check" aria-hidden="true"></i> {{ trans('product.secure_checkout') }}</li>
                 </ul>
 
                 {# Installments (Tabby / Tamara via Salla) #}
@@ -115,7 +115,7 @@
     {# ============ DESCRIPTION ============ #}
     {% if product.description %}
     <section class="lumina-section" data-reveal>
-        {% include 'partials.section-head' with {title: trans('product.details','Product details')} %}
+        {% include 'partials.section-head' with {title: trans('product.details')} %}
         <div class="lumina-prose">{{ product.description | raw }}</div>
     </section>
     {% endif %}
@@ -125,14 +125,14 @@
 
     {# ============ RELATED ============ #}
     <section class="lumina-section" data-reveal>
-        {% include 'partials.section-head' with {title: trans('product.you_may_like','You may also like')} %}
+        {% include 'partials.section-head' with {title: trans('product.you_may_like')} %}
         <salla-products-slider source="related" source-value="{{ product.id }}" class="lumina-slider"></salla-products-slider>
     </section>
 
     {# ============ REVIEWS ============ #}
     {% if store.settings.rating_enabled %}
     <section class="lumina-section" data-reveal>
-        {% include 'partials.section-head' with {title: trans('product.reviews','Customer reviews')} %}
+        {% include 'partials.section-head' with {title: trans('product.reviews')} %}
         <salla-comments comamentable-id="{{ product.id }}" comamentable-type="product"></salla-comments>
     </section>
     {% endif %}

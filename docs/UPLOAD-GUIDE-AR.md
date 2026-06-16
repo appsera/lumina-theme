@@ -10,10 +10,12 @@
 
 | الأداة | الإصدار | للتحقق |
 |--------|---------|--------|
-| Node.js | 18+ | `node -v` |
+| Node.js | **22.12+ (LTS) — أو 20.19+ على الأقل** | `node -v` |
 | pnpm | 8+ (سلة تفرض pnpm) | `npm i -g pnpm` ثم `pnpm -v` |
 | Salla CLI | الأحدث | `npm i -g @salla.sa/cli` ثم `salla -v` |
 | حساب مطوّر سلة | — | https://salla.partners |
+
+> ⚠️ **انتبه لإصدار Node:** أداة Salla CLI الحديثة تحتوي وحدات «ESM فقط». دعم `require()` لها أُضيف في **Node v20.19.0** واكتمل في **v22.12.0**. أي إصدار أقدم (مثل v20.18.x) سيُسبب الخطأ `ERR_REQUIRE_ESM` عند تشغيل أوامر سلة. استخدم Node 22 LTS لتفادي المشكلة تماماً.
 
 ---
 
@@ -122,5 +124,38 @@ salla theme publish
 | **`ERR_REQUIRE_ESM` (require() of ES Module)** | السبب: تم جلب نسخة أحدث «ESM فقط» من حزمة (غالباً `glob` v11+). **الحل:** احذف `node_modules` و `pnpm-lock.yaml` المحلي القديم، ثم نفّذ `pnpm install --frozen-lockfile` لاستخدام ملف القفل المرفق. تأكد أن `package.json` يحتوي إصدارات مثبّتة بدون `^` وقسم `pnpm.overrides.glob = "10.5.0"`. لا تستخدم `npm install` مطلقاً (سلة تفرض pnpm). |
 
 > ✅ تم اختبار البناء فعلياً: `pnpm install` ثم `pnpm run production` يكتمل بنجاح وينتج مجلد `public/` (app.css + جميع ملفات JS). التحذير الوحيد هو حجم `app.css` وهو طبيعي لأنه يتضمن أنماط مكوّنات سلة الكاملة (نفس سلوك الثيم الرسمي «رائد»).
+
+---
+
+## 🚑 خطأ `ERR_REQUIRE_ESM` عند تشغيل أوامر Salla CLI
+
+إذا ظهر لك خطأ مثل:
+```
+Error [ERR_REQUIRE_ESM]: require() of ES Module
+C:\Users\<اسمك>\AppData\Local\nvm\v20.18.3\node_modules\...
+  code: 'ERR_REQUIRE_ESM'
+```
+فالمسار يحتوي `\nvm\v20.18.3\node_modules\` (مجلد الحزم العامة) → **المشكلة في إصدار Node + Salla CLI على جهازك، وليست في الثيم.**
+
+**السبب:** أداة سلة تستدعي وحدات «ESM فقط» بـ `require()`، وهذا غير مدعوم في Node أقدم من v20.19.
+
+**الحل (الموصى به) — ترقية Node وإعادة تثبيت CLI:**
+```powershell
+nvm install 22.12.0
+nvm use 22.12.0
+node -v                       # تأكد: v22.12.0
+npm uninstall -g @salla.sa/cli
+npm cache clean --force
+npm install -g @salla.sa/cli  # أعد التثبيت على إصدار Node الجديد (ضروري)
+salla -v
+```
+
+**بديل سريع (حل مؤقت دون ترقية):**
+```powershell
+set NODE_OPTIONS=--experimental-require-module
+salla theme preview
+```
+
+> ملاحظة: بعد تغيير إصدار Node عبر nvm، **يجب إعادة تثبيت Salla CLI** لأن الحزم العامة مرتبطة بكل إصدار Node على حدة.
 
 > ملاحظة: ملف المعاينة داخل بيئة Arena يعرض شكل التصميم فقط بدون بيانات سلة الحية؛ التجربة الكاملة تظهر عبر `salla theme preview`.

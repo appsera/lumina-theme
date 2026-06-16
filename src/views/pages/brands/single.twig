@@ -3,8 +3,8 @@
 {% block content %}
 <div class="lumina-container py-6 lg:py-10">
     <nav class="lumina-breadcrumb" aria-label="breadcrumb">
-        <a href="{{ store.url }}">{{ trans('common.home','Home') }}</a>
-        <span>/</span><a href="{{ link('brands') }}">{{ trans('common.brands','Brands') }}</a>
+        <a href="{{ store.url }}">{{ trans('common.home') }}</a>
+        <span>/</span><a href="{{ page('brands') }}">{{ trans('common.brands') }}</a>
         <span>/</span><span aria-current="page">{{ brand.name }}</span>
     </nav>
 
@@ -24,7 +24,7 @@
         {% else %}
             <div class="lumina-empty">
                 <img src="{{ 'images/s-empty.png' | asset }}" alt="" width="180" height="180" loading="lazy"/>
-                <p>{{ trans('common.no_products','No products found') }}</p>
+                <p>{{ trans('common.no_products') }}</p>
             </div>
         {% endfor %}
     </div>

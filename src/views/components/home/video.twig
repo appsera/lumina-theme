@@ -1,21 +1,21 @@
 {#  LUMINA — Immersive video block (home.video). Uses lite YouTube facade
     (no heavy iframe until clicked) to protect Lighthouse. The lite-youtube
     web component assets are loaded lazily ONLY on pages using this block. #}
-{% if component.value('youtube_id') %}
+{% if component.youtube_id %}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lite-youtube-embed@0.3.2/src/lite-yt-embed.css"/>
     <script defer src="https://cdn.jsdelivr.net/npm/lite-youtube-embed@0.3.2/src/lite-yt-embed.js"></script>
 {% endif %}
 <section class="lumina-container lumina-section" data-reveal>
-    {% if component.value('title') %}
-        {% include 'partials.section-head' with {title: component.value('title'), subtitle: component.value('subtitle')} %}
+    {% if component.title %}
+        {% include 'partials.section-head' with {title: component.title, subtitle: component.subtitle} %}
     {% endif %}
     <div class="lumina-video">
-        {% if component.value('youtube_id') %}
-            <lite-youtube videoid="{{ component.value('youtube_id') }}"
-                          style="background-image:url('{{ component.value('poster') ?: 'https://i.ytimg.com/vi/'~component.value('youtube_id')~'/maxresdefault.jpg' }}')"
-                          playlabel="{{ component.value('title','Play') }}"></lite-youtube>
-        {% elseif component.value('poster') %}
-            <img src="{{ component.value('poster') }}" alt="{{ component.value('title') }}"
+        {% if component.youtube_id %}
+            <lite-youtube videoid="{{ component.youtube_id }}"
+                          style="background-image:url('{{ component.poster ?: 'https://i.ytimg.com/vi/'~component.youtube_id~'/maxresdefault.jpg' }}')"
+                          playlabel="{{ (component.title|default('Play')) }}"></lite-youtube>
+        {% elseif component.poster %}
+            <img src="{{ component.poster }}" alt="{{ component.title }}"
                  width="1280" height="720" loading="lazy" decoding="async" class="w-full"/>
         {% endif %}
     </div>

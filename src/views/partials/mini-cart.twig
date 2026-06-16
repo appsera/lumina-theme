@@ -12,7 +12,7 @@
 =====================================================================
 #}
 <div id="lumina-mini-cart" class="lumina-drawer" aria-hidden="true" role="dialog"
-     aria-label="{{ trans('cart.title','Your cart') }}">
+     aria-label="{{ trans('cart.title') }}">
 
     {# Backdrop #}
     <div class="lumina-drawer-backdrop" data-cart-close></div>
@@ -23,11 +23,11 @@
         {# Header #}
         <header class="lumina-drawer-head">
             <h2 class="lumina-drawer-title">
-                {{ trans('cart.title','Your cart') }}
+                {{ trans('cart.title') }}
                 <salla-cart-summary class="lumina-drawer-count"></salla-cart-summary>
             </h2>
             <button type="button" class="lumina-iconbtn" data-cart-close
-                    aria-label="{{ trans('common.close','Close') }}">
+                    aria-label="{{ trans('common.close') }}">
                 <i class="sicon-cancel text-2xl" aria-hidden="true"></i>
             </button>
         </header>
@@ -37,7 +37,7 @@
         <div class="lumina-free-ship lumina-free-ship--drawer" data-threshold="{{ theme.settings.get('free_shipping_threshold') }}">
             <div class="lumina-free-ship-text">
                 <i class="sicon-truck-fast" aria-hidden="true"></i>
-                <span data-free-ship-msg>{{ trans('cart.free_ship_progress','Add more to unlock free shipping') }}</span>
+                <span data-free-ship-msg>{{ trans('cart.free_ship_progress') }}</span>
             </div>
             <div class="lumina-progress"><span class="lumina-progress-bar" style="width:0%"></span></div>
         </div>
@@ -52,16 +52,16 @@
                 <span class="lumina-trust-ico mx-auto" style="width:64px;height:64px">
                     <i class="sicon-shopping-bag text-3xl" aria-hidden="true"></i>
                 </span>
-                <p class="font-semibold mt-3">{{ trans('cart.empty_title','Your cart is empty') }}</p>
-                <p class="text-sm text-[var(--color-muted)] mb-4">{{ trans('cart.empty_sub','Discover something you’ll love.') }}</p>
+                <p class="font-semibold mt-3">{{ trans('cart.empty_title') }}</p>
+                <p class="text-sm text-[var(--color-muted)] mb-4">{{ trans('cart.empty_sub') }}</p>
                 <button type="button" class="lumina-btn lumina-btn-primary" data-cart-close>
-                    {{ trans('account.start_shopping','Start shopping') }}
+                    {{ trans('account.start_shopping') }}
                 </button>
             </div>
 
             {# Cross-sell — boost AOV without leaving the drawer #}
             <div class="lumina-drawer-crosssell" data-cart-crosssell>
-                <h3 class="lumina-drawer-subhead">{{ trans('cart.you_may_add','Complete your order') }}</h3>
+                <h3 class="lumina-drawer-subhead">{{ trans('cart.you_may_add') }}</h3>
                 <salla-products-slider source="latest" class="lumina-slider lumina-slider--mini"></salla-products-slider>
             </div>
         </div>
@@ -76,15 +76,15 @@
 
             <salla-button onclick="salla.cart.submit()" width="wide" fill="solid"
                           class="lumina-atc lumina-drawer-checkout">
-                {{ trans('cart.checkout','Proceed to checkout') }}
+                {{ trans('cart.checkout') }}
             </salla-button>
 
             <button type="button" class="lumina-drawer-continue" data-cart-close>
-                {{ trans('cart.continue','Continue shopping') }}
+                {{ trans('cart.continue') }}
             </button>
 
             <ul class="lumina-drawer-trust">
-                <li><i class="sicon-shield-check" aria-hidden="true"></i> {{ trans('cart.secure','Secure encrypted checkout') }}</li>
+                <li><i class="sicon-shield-check" aria-hidden="true"></i> {{ trans('cart.secure') }}</li>
             </ul>
         </footer>
     </aside>

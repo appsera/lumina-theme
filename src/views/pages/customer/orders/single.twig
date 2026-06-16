@@ -3,11 +3,11 @@
 {% block content %}
 <div class="lumina-container py-6 lg:py-10">
     <nav class="lumina-breadcrumb" aria-label="breadcrumb">
-        <a href="{{ link('profile') }}">{{ trans('common.account','Account') }}</a>
-        <span>/</span><a href="{{ link('orders.index') }}">{{ trans('account.orders','My Orders') }}</a>
+        <a href="{{ page('profile') }}">{{ trans('common.account') }}</a>
+        <span>/</span><a href="{{ page('orders') }}">{{ trans('account.orders') }}</a>
         <span>/</span><span aria-current="page">#{{ order.id }}</span>
     </nav>
-    <h1 class="lumina-listing-title mb-6">{{ trans('account.order_no','Order') }} #{{ order.id }}</h1>
+    <h1 class="lumina-listing-title mb-6">{{ trans('account.order_no') }} #{{ order.id }}</h1>
 
     <div class="lumina-account-grid">
         {% include 'partials.account-nav' with {active: 'orders'} %}

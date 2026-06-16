@@ -3,7 +3,7 @@
 {% block content %}
 <div class="lumina-container py-6 lg:py-10">
     <header class="lumina-listing-head" data-reveal>
-        <span class="lumina-eyebrow">{{ trans('brands.eyebrow','Our partners') }}</span>
+        <span class="lumina-eyebrow">{{ trans('brands.eyebrow') }}</span>
         <h1 class="lumina-listing-title">{{ page.title | raw }}</h1>
     </header>
 
@@ -19,7 +19,7 @@
         {% else %}
             <div class="lumina-empty">
                 <img src="{{ 'images/s-empty.png' | asset }}" alt="" width="180" height="180" loading="lazy"/>
-                <p>{{ trans('brands.empty','No brands available') }}</p>
+                <p>{{ trans('brands.empty') }}</p>
             </div>
         {% endfor %}
     </div>

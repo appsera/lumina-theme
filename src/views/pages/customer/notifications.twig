@@ -2,7 +2,7 @@
 {% extends "layouts.master" %}
 {% block content %}
 <div class="lumina-container py-6 lg:py-10">
-    <h1 class="lumina-listing-title mb-6">{{ trans('account.notifications','Notifications') }}</h1>
+    <h1 class="lumina-listing-title mb-6">{{ trans('account.notifications') }}</h1>
     <div class="lumina-account-grid">
         {% include 'partials.account-nav' with {active: 'notifications'} %}
         <div class="lumina-account-main">
@@ -18,7 +18,7 @@
                 {% else %}
                     <div class="lumina-empty">
                         <img src="{{ 'images/s-empty.png' | asset }}" alt="" width="160" height="160" loading="lazy"/>
-                        <p>{{ trans('account.no_notifications','No notifications yet') }}</p>
+                        <p>{{ trans('account.no_notifications') }}</p>
                     </div>
                 {% endfor %}
             </div>

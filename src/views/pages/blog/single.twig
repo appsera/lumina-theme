@@ -5,7 +5,7 @@
     <header class="max-w-3xl mx-auto text-center mb-8" data-reveal>
         {% if article.category %}<span class="lumina-eyebrow">{{ article.category.name }}</span>{% endif %}
         <h1 class="lumina-listing-title">{{ article.title }}</h1>
-        <p class="lumina-blog-meta mt-3">{{ article.date }} · {{ article.reading_time ?: '3' }} {{ trans('blog.min_read','min read') }}</p>
+        <p class="lumina-blog-meta mt-3">{{ article.date }} · {{ article.reading_time ?: '3' }} {{ trans('blog.min_read') }}</p>
     </header>
 
     {% if article.image %}
@@ -19,7 +19,7 @@
 
     {# Share #}
     <div class="max-w-3xl mx-auto mt-10 flex items-center gap-3 border-t border-black/5 pt-6" data-reveal>
-        <span class="text-sm font-semibold">{{ trans('blog.share','Share') }}</span>
+        <span class="text-sm font-semibold">{{ trans('blog.share') }}</span>
         <salla-social-share class="flex gap-2"></salla-social-share>
     </div>
 </article>
@@ -27,7 +27,7 @@
 {# Related comments #}
 {% if store.settings.rating_enabled %}
 <section class="lumina-container lumina-section">
-    {% include 'partials.section-head' with {title: trans('blog.comments','Comments')} %}
+    {% include 'partials.section-head' with {title: trans('blog.comments')} %}
     <salla-comments comamentable-id="{{ article.id }}" comamentable-type="article"></salla-comments>
 </section>
 {% endif %}

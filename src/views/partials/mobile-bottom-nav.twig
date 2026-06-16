@@ -5,28 +5,28 @@
   • Hidden ≥ lg. Auto-hides on scroll-down (lumina.js).
 =====================================================================
 #}
-<nav class="lumina-bottom-nav lg:hidden" aria-label="{{ trans('common.mobile_nav','Mobile navigation') }}">
-    <a href="{{ store.url }}" class="lumina-bn-item" aria-label="{{ trans('common.home','Home') }}">
+<nav class="lumina-bottom-nav lg:hidden" aria-label="{{ trans('common.mobile_nav') }}">
+    <a href="{{ store.url }}" class="lumina-bn-item" aria-label="{{ trans('common.home') }}">
         <i class="sicon-home" aria-hidden="true"></i>
-        <span>{{ trans('common.home','Home') }}</span>
+        <span>{{ trans('common.home') }}</span>
     </a>
-    <button type="button" class="lumina-bn-item" onclick="salla.event.dispatch('search::open')" aria-label="{{ trans('common.search','Search') }}">
+    <button type="button" class="lumina-bn-item" onclick="salla.event.dispatch('search::open')" aria-label="{{ trans('common.search') }}">
         <i class="sicon-search" aria-hidden="true"></i>
-        <span>{{ trans('common.search','Search') }}</span>
+        <span>{{ trans('common.search') }}</span>
     </button>
-    <button type="button" class="lumina-bn-item lumina-bn-cart" onclick="salla.event.dispatch('cart::open')" aria-label="{{ trans('common.cart','Cart') }}">
+    <button type="button" class="lumina-bn-item lumina-bn-cart" onclick="salla.event.dispatch('cart::open')" aria-label="{{ trans('common.cart') }}">
         <span class="lumina-bn-cart-ring relative">
             <i class="sicon-shopping-bag" aria-hidden="true"></i>
             <salla-cart-summary class="lumina-badge"></salla-cart-summary>
         </span>
-        <span>{{ trans('common.cart','Cart') }}</span>
+        <span>{{ trans('common.cart') }}</span>
     </button>
-    <a href="{{ link('wishlist') }}" class="lumina-bn-item relative" aria-label="{{ trans('common.wishlist','Wishlist') }}">
+    <a href="{{ page('wishlist') }}" class="lumina-bn-item relative" aria-label="{{ trans('common.wishlist') }}">
         <i class="sicon-heart" aria-hidden="true"></i>
-        <span>{{ trans('common.wishlist','Wishlist') }}</span>
+        <span>{{ trans('common.wishlist') }}</span>
     </a>
-    <a href="{{ user.id ? link('profile') : 'javascript:salla.event.dispatch(\'login::open\')' }}" class="lumina-bn-item" aria-label="{{ trans('common.account','Account') }}">
+    <a href="{{ user.id ? page('profile') : 'javascript:salla.event.dispatch(\'login::open\')' }}" class="lumina-bn-item" aria-label="{{ trans('common.account') }}">
         <i class="sicon-user" aria-hidden="true"></i>
-        <span>{{ trans('common.account','Account') }}</span>
+        <span>{{ trans('common.account') }}</span>
     </a>
 </nav>

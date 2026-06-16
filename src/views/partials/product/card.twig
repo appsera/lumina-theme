@@ -33,19 +33,19 @@
             {# Badges #}
             <div class="lumina-card-badges">
                 {% if product.is_on_sale %}
-                    <span class="lumina-badge-sale">{{ product.discount_percentage|default('') }}{{ product.discount_percentage ? '%' : trans('product.sale','Sale') }}</span>
+                    <span class="lumina-badge-sale">{{ product.discount_percentage|default('') }}{{ product.discount_percentage ? '%' : trans('product.sale') }}</span>
                 {% endif %}
                 {% if product.status == 'out' %}
-                    <span class="lumina-badge-out">{{ trans('product.out_of_stock','Sold out') }}</span>
+                    <span class="lumina-badge-out">{{ trans('product.out_of_stock') }}</span>
                 {% elseif product.quantity is not null and product.quantity <= 5 and product.quantity > 0 %}
-                    <span class="lumina-badge-low">{{ trans('product.low_stock','Only few left') }}</span>
+                    <span class="lumina-badge-low">{{ trans('product.low_stock') }}</span>
                 {% endif %}
             </div>
 
             {# Wishlist (floating) #}
             <salla-button shape="icon" fill="none" class="lumina-card-wish"
                           onclick="salla.wishlist.toggle({{ product.id }})"
-                          aria-label="{{ trans('common.add_wishlist','Add to wishlist') }}">
+                          aria-label="{{ trans('common.add_wishlist') }}">
                 <i class="sicon-heart" aria-hidden="true"></i>
             </salla-button>
 
@@ -53,7 +53,7 @@
             <div class="lumina-card-quickadd">
                 <salla-add-product-button product-id="{{ product.id }}"
                                           class="w-full" fill="solid">
-                    {{ trans('product.quick_add','Quick add') }}
+                    {{ trans('product.quick_add') }}
                 </salla-add-product-button>
             </div>
         </div>

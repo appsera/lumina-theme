@@ -2,7 +2,7 @@
 {% extends "layouts.master" %}
 {% block content %}
 <div class="lumina-container py-6 lg:py-10">
-    <h1 class="lumina-listing-title mb-6">{{ trans('common.wishlist','Wishlist') }}</h1>
+    <h1 class="lumina-listing-title mb-6">{{ trans('common.wishlist') }}</h1>
     <div class="lumina-account-grid">
         {% include 'partials.account-nav' with {active: 'wishlist'} %}
         <div class="lumina-account-main">
@@ -12,8 +12,8 @@
                 {% else %}
                     <div class="lumina-empty">
                         <img src="{{ 'images/s-empty.png' | asset }}" alt="" width="180" height="180" loading="lazy"/>
-                        <p>{{ trans('account.wishlist_empty','Your wishlist is empty') }}</p>
-                        <a href="{{ store.url }}" class="lumina-btn lumina-btn-primary mt-4">{{ trans('account.start_shopping','Start shopping') }}</a>
+                        <p>{{ trans('account.wishlist_empty') }}</p>
+                        <a href="{{ store.url }}" class="lumina-btn lumina-btn-primary mt-4">{{ trans('account.start_shopping') }}</a>
                     </div>
                 {% endfor %}
             </div>

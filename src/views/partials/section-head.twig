@@ -11,7 +11,7 @@
     </div>
     {% if url is defined and url %}
         <a href="{{ url }}" class="lumina-section-link">
-            {{ cta|default(trans('common.view_all','View all')) }}
+            {{ cta|default(trans('common.view_all')) }}
             <i class="sicon-arrow-{{ theme.is_rtl ? 'left' : 'right' }}" aria-hidden="true"></i>
         </a>
     {% endif %}

@@ -1,8 +1,8 @@
 {#  LUMINA — Brand Showcase (custom component: home.brand-showcase) #}
 <section class="lumina-container lumina-section" data-reveal>
-    {% include 'partials.section-head' with {title: component.value('title', trans('home.brands','Brands')) } %}
+    {% include 'partials.section-head' with {title: (component.title|default(trans('home.brands'))) } %}
     <div class="lumina-brand-strip">
-        {% for b in component.value('brands', []) %}
+        {% for b in (component.brands|default([])) %}
             <a href="{{ b.url }}" class="lumina-brand-logo" aria-label="{{ b.name }}">
                 <img src="{{ b.logo }}" alt="{{ b.name }}" width="160" height="80" loading="lazy" decoding="async"/>
             </a>

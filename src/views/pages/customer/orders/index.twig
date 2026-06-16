@@ -2,7 +2,7 @@
 {% extends "layouts.master" %}
 {% block content %}
 <div class="lumina-container py-6 lg:py-10">
-    <h1 class="lumina-listing-title mb-6">{{ trans('account.orders','My Orders') }}</h1>
+    <h1 class="lumina-listing-title mb-6">{{ trans('account.orders') }}</h1>
     <div class="lumina-account-grid">
         {% include 'partials.account-nav' with {active: 'orders'} %}
         <div class="lumina-account-main">
@@ -10,21 +10,21 @@
                 <a href="{{ order.url }}" class="lumina-order-card">
                     <div class="lumina-order-head">
                         <div>
-                            <span class="lumina-card-brand">{{ trans('account.order_no','Order') }} #{{ order.id }}</span>
+                            <span class="lumina-card-brand">{{ trans('account.order_no') }} #{{ order.id }}</span>
                             <span class="lumina-order-date">{{ order.date }}</span>
                         </div>
                         <span class="lumina-order-status lumina-order-status--{{ order.status.slug ?: 'default' }}">{{ order.status.name }}</span>
                     </div>
                     <div class="lumina-order-foot">
-                        <span class="lumina-order-items">{{ order.items_count ?: order.items|length }} {{ trans('account.items','items') }}</span>
+                        <span class="lumina-order-items">{{ order.items_count ?: order.items|length }} {{ trans('account.items') }}</span>
                         <span class="lumina-price-now">{{ order.total | money }}</span>
                     </div>
                 </a>
             {% else %}
                 <div class="lumina-empty">
                     <img src="{{ 'images/s-empty.png' | asset }}" alt="" width="180" height="180" loading="lazy"/>
-                    <p>{{ trans('account.no_orders','You have no orders yet') }}</p>
-                    <a href="{{ store.url }}" class="lumina-btn lumina-btn-primary mt-4">{{ trans('account.start_shopping','Start shopping') }}</a>
+                    <p>{{ trans('account.no_orders') }}</p>
+                    <a href="{{ store.url }}" class="lumina-btn lumina-btn-primary mt-4">{{ trans('account.start_shopping') }}</a>
                 </div>
             {% endfor %}
             {{ orders.links }}

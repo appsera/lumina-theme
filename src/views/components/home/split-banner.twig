@@ -1,7 +1,7 @@
 {#  LUMINA — Split (dual) promo banner (home.split-banner) #}
 <section class="lumina-container lumina-section" data-reveal>
     <div class="lumina-split">
-        {% for b in component.value('banners', []) %}
+        {% for b in (component.banners|default([])) %}
             <a href="{{ b.url ?: '#' }}" class="lumina-split-card group">
                 <img src="{{ b.image }}" alt="{{ b.title }}"
                      width="640" height="420" loading="lazy" decoding="async" class="lumina-split-img"/>

@@ -12,25 +12,25 @@
             {% endif %}
         </span>
         <div class="min-w-0">
-            <strong class="block truncate">{{ user.name ?: trans('common.account','Account') }}</strong>
+            <strong class="block truncate">{{ user.name ?: trans('common.account') }}</strong>
             <span class="text-xs text-[var(--color-muted)] truncate">{{ user.email ?: user.mobile }}</span>
         </div>
     </div>
-    <nav class="lumina-account-links" aria-label="{{ trans('account.nav','Account navigation') }}">
+    <nav class="lumina-account-links" aria-label="{{ trans('account.nav') }}">
         {% set items = [
-            {key:'profile',       icon:'sicon-user',          label: trans('account.profile','Profile'),        url: link('profile')},
-            {key:'orders',        icon:'sicon-bag-happy',     label: trans('account.orders','My Orders'),       url: link('orders.index')},
-            {key:'wishlist',      icon:'sicon-heart',         label: trans('common.wishlist','Wishlist'),       url: link('wishlist')},
-            {key:'notifications', icon:'sicon-bell',          label: trans('account.notifications','Notifications'), url: link('notifications')},
-            {key:'loyalty',       icon:'sicon-award-ribbon',  label: trans('account.loyalty','Rewards'),        url: link('loyalty')}
+            {key:'profile',       icon:'sicon-user',          label: trans('account.profile'),        url: page('profile')},
+            {key:'orders',        icon:'sicon-bag-happy',     label: trans('account.orders'),       url: page('orders')},
+            {key:'wishlist',      icon:'sicon-heart',         label: trans('common.wishlist'),       url: page('wishlist')},
+            {key:'notifications', icon:'sicon-bell',          label: trans('account.notifications'), url: page('notifications')},
+            {key:'loyalty',       icon:'sicon-award-ribbon',  label: trans('account.loyalty'),        url: page('loyalty')}
         ] %}
         {% for it in items %}
             <a href="{{ it.url }}" class="lumina-account-link {{ active == it.key ? 'is-active' : '' }}">
                 <i class="{{ it.icon }}" aria-hidden="true"></i><span>{{ it.label }}</span>
             </a>
         {% endfor %}
-        <a href="{{ link('logout') }}" class="lumina-account-link lumina-account-logout">
-            <i class="sicon-logout" aria-hidden="true"></i><span>{{ trans('account.logout','Logout') }}</span>
+        <a href="{{ page('logout') }}" class="lumina-account-link lumina-account-logout">
+            <i class="sicon-logout" aria-hidden="true"></i><span>{{ trans('account.logout') }}</span>
         </a>
     </nav>
 </aside>

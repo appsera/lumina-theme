@@ -31,7 +31,7 @@
         <div class="lumina-container flex items-center gap-3 sm:gap-6 h-16 sm:h-20">
 
             {# Mobile menu trigger #}
-            <button type="button" class="lumina-iconbtn lg:hidden" aria-label="{{ trans('common.menu','Menu') }}"
+            <button type="button" class="lumina-iconbtn lg:hidden" aria-label="{{ trans('common.menu') }}"
                     onclick="salla.event.dispatch('menu::open')">
                 <i class="sicon-menu text-2xl" aria-hidden="true"></i>
             </button>
@@ -48,7 +48,7 @@
             </a>
 
             {# Desktop primary navigation + mega menu #}
-            <nav class="hidden lg:flex items-center gap-1 flex-1" aria-label="{{ trans('common.main_nav','Main') }}">
+            <nav class="hidden lg:flex items-center gap-1 flex-1" aria-label="{{ trans('common.main_nav') }}">
                 <salla-menu menu="header" class="lumina-menu"></salla-menu>
             </nav>
 
@@ -60,14 +60,14 @@
                                hover:border-[var(--color-primary)] transition-colors"
                         onclick="salla.event.dispatch('search::open')">
                     <i class="sicon-search text-lg" aria-hidden="true"></i>
-                    <span class="text-sm">{{ trans('common.search_placeholder','Search products, brands…') }}</span>
+                    <span class="text-sm">{{ trans('common.search_placeholder') }}</span>
                 </button>
             </div>
 
             {# Action cluster #}
             <div class="flex items-center gap-1 sm:gap-2 ms-auto">
                 {# Mobile search #}
-                <button type="button" class="lumina-iconbtn md:hidden" aria-label="{{ trans('common.search','Search') }}"
+                <button type="button" class="lumina-iconbtn md:hidden" aria-label="{{ trans('common.search') }}"
                         onclick="salla.event.dispatch('search::open')">
                     <i class="sicon-search text-2xl" aria-hidden="true"></i>
                 </button>
@@ -78,19 +78,19 @@
                 {% endif %}
 
                 {# Account #}
-                <a href="{{ user.id ? link('profile') : 'javascript:salla.event.dispatch(\'login::open\')' }}"
-                   class="lumina-iconbtn" aria-label="{{ trans('common.account','Account') }}">
+                <a href="{{ user.id ? page('profile') : 'javascript:salla.event.dispatch(\'login::open\')' }}"
+                   class="lumina-iconbtn" aria-label="{{ trans('common.account') }}">
                     <i class="sicon-user text-2xl" aria-hidden="true"></i>
                 </a>
 
                 {# Wishlist #}
-                <a href="{{ link('wishlist') }}" class="lumina-iconbtn relative" aria-label="{{ trans('common.wishlist','Wishlist') }}">
+                <a href="{{ page('wishlist') }}" class="lumina-iconbtn relative" aria-label="{{ trans('common.wishlist') }}">
                     <i class="sicon-heart text-2xl" aria-hidden="true"></i>
                     <salla-wishlist-count class="lumina-badge"></salla-wishlist-count>
                 </a>
 
                 {# Cart — opens the AJAX mini drawer (never a full reload) #}
-                <button type="button" class="lumina-iconbtn relative" aria-label="{{ trans('common.cart','Cart') }}"
+                <button type="button" class="lumina-iconbtn relative" aria-label="{{ trans('common.cart') }}"
                         onclick="salla.event.dispatch('cart::open')">
                     <i class="sicon-shopping-bag text-2xl" aria-hidden="true"></i>
                     <salla-cart-summary class="lumina-badge"></salla-cart-summary>

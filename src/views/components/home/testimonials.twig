@@ -1,8 +1,8 @@
 {#  LUMINA — Testimonials (home.testimonials) #}
 <section class="lumina-container lumina-section" data-reveal>
-    {% include 'partials.section-head' with {title: component.value('title', trans('home.reviews','What customers say')) } %}
+    {% include 'partials.section-head' with {title: (component.title|default(trans('home.reviews'))) } %}
     <div class="lumina-testi-grid">
-        {% for t in component.value('items', []) %}
+        {% for t in (component.items|default([])) %}
             <figure class="lumina-testi-card">
                 <salla-rating-stars stars="{{ t['items.stars'] ?: 5 }}"></salla-rating-stars>
                 <blockquote class="lumina-testi-text">{{ t['items.text'] }}</blockquote>

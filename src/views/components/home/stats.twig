@@ -1,7 +1,7 @@
 {#  LUMINA — Statistics counter band (home.stats) #}
 <section class="lumina-stats" data-reveal>
   <div class="lumina-container lumina-stats-grid">
-    {% for s in component.value('items', []) %}
+    {% for s in (component.items|default([])) %}
         <div class="lumina-stat">
             <span class="lumina-stat-num" data-count="{{ s['items.value'] }}">{{ s['items.value'] }}</span>
             <span class="lumina-stat-label">{{ s['items.label'] }}</span>

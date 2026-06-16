@@ -3,7 +3,7 @@
 {% block content %}
 <div class="lumina-container py-6 lg:py-10">
     <header class="lumina-listing-head" data-reveal>
-        <span class="lumina-eyebrow">{{ trans('blog.eyebrow','Journal') }}</span>
+        <span class="lumina-eyebrow">{{ trans('blog.eyebrow') }}</span>
         <h1 class="lumina-listing-title">{{ page.title | raw }}</h1>
     </header>
 
@@ -18,13 +18,13 @@
                     {% if article.category %}<span class="lumina-card-brand">{{ article.category.name }}</span>{% endif %}
                     <h2 class="lumina-blog-title"><a href="{{ article.url }}">{{ article.title }}</a></h2>
                     <p class="lumina-blog-excerpt">{{ article.excerpt }}</p>
-                    <span class="lumina-blog-meta">{{ article.date }} · {{ article.reading_time ?: '3' }} {{ trans('blog.min_read','min read') }}</span>
+                    <span class="lumina-blog-meta">{{ article.date }} · {{ article.reading_time ?: '3' }} {{ trans('blog.min_read') }}</span>
                 </div>
             </article>
         {% else %}
             <div class="lumina-empty">
                 <img src="{{ 'images/s-empty.png' | asset }}" alt="" width="180" height="180" loading="lazy"/>
-                <p>{{ trans('blog.empty','No articles yet') }}</p>
+                <p>{{ trans('blog.empty') }}</p>
             </div>
         {% endfor %}
     </div>
