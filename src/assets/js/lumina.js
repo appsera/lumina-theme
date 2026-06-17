@@ -11,6 +11,19 @@
   var cfg = window.Lumina || {};
   var doc = document;
 
+  /* ---------------- 0. Mark JS as active ----------------------- */
+  /* Adding this class enables the reveal-hide CSS. If this script never
+     runs, content stays fully visible (no blank page). */
+  doc.documentElement.classList.add('lumina-js');
+  /* Safety net: if anything below throws, reveal everything after load. */
+  window.addEventListener('load', function () {
+    setTimeout(function () {
+      doc.querySelectorAll('[data-reveal]:not(.is-revealed)').forEach(function (el) {
+        el.classList.add('is-revealed');
+      });
+    }, 1200);
+  });
+
   /* ---------------- 1. Sticky + condensing header ---------------- */
   (function stickyHeader() {
     var header = doc.getElementById('lumina-header');

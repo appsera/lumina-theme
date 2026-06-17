@@ -465,9 +465,12 @@ body.has-bottom-nav .lumina-sticky-atc { bottom: 64px; }
 /* ------------------------------------------------------------------ */
 /* 11. Motion / reveal                                               */
 /* ------------------------------------------------------------------ */
-body.anim-on [data-reveal] { opacity: 0; transform: translateY(18px); transition: opacity .6s var(--ease), transform .6s var(--ease); }
-body.anim-on [data-reveal].is-revealed { opacity: 1; transform: none; }
-body.anim-off [data-reveal] { opacity: 1; transform: none; }
+/* IMPORTANT: content is ALWAYS visible by default (progressive enhancement).
+   We only hide-for-reveal AFTER lumina.js confirms it's running by adding the
+   `lumina-js` class to <html>. This guarantees no blank page if JS fails. */
+html.lumina-js body.anim-on [data-reveal] { opacity: 0; transform: translateY(18px); transition: opacity .6s var(--ease), transform .6s var(--ease); }
+html.lumina-js body.anim-on [data-reveal].is-revealed { opacity: 1; transform: none; }
+[data-reveal] { opacity: 1; transform: none; }
 
 /* Skeleton shimmer for loading states (helps zero-CLS perception) */
 .lumina-skeleton { position: relative; overflow: hidden; background: color-mix(in srgb,var(--color-text) 8%,transparent); border-radius: var(--radius-sm); }
