@@ -44,9 +44,9 @@
             "required": false,
             "selected": [
                 {
-                    "label": "أسود وذهبي / Onyx & Gold",
-                    "value": "onyx",
-                    "key": "p-onyx"
+                    "label": "بنفسجي عصري / Modern Violet",
+                    "value": "violet",
+                    "key": "p-violet"
                 }
             ],
             "options": [
@@ -109,9 +109,9 @@
             "required": false,
             "selected": [
                 {
-                    "label": "خط الثيم الافتراضي",
-                    "value": null,
-                    "key": "f-default"
+                    "label": "Dubai",
+                    "value": "Dubai",
+                    "key": "f-dubai"
                 }
             ],
             "options": [
