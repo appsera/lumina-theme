@@ -11,7 +11,6 @@
         "ar": "ثيم فاخر عالمي المظهر، سريع للغاية، ومُحسّن لرفع معدل التحويل ليتفوق على ثيمات سلة الافتراضية.",
         "en": "A luxury, internationally-styled, ultra-fast and conversion-optimised theme built to outperform the default Salla themes."
     },
-
     "features": [
         "mega-menu",
         "fonts",
@@ -27,9 +26,13 @@
         "component-store-features",
         "component-testimonials"
     ],
-
     "settings": [
-        { "type": "static", "format": "title", "id": "grp-presets", "value": "<h6 style='background:linear-gradient(135deg,#0f5f53,#0a463d);color:#fff;padding:14px 16px;border-radius:10px;margin-bottom:14px;font-weight:700'>🎭 الأنماط الجاهزة / Style Presets</h6>" },
+        {
+            "type": "static",
+            "format": "title",
+            "id": "grp-presets",
+            "value": "<h6 style='background:linear-gradient(135deg,#0f5f53,#0a463d);color:#fff;padding:14px 16px;border-radius:10px;margin-bottom:14px;font-weight:700'>🎭 الأنماط الجاهزة / Style Presets</h6>"
+        },
         {
             "id": "style_preset",
             "type": "items",
@@ -39,19 +42,62 @@
             "description": "اختر هوية بصرية كاملة بنقرة واحدة، أو 'مخصص' للتحكم اليدوي بالألوان أدناه.",
             "source": "Manual",
             "required": false,
-            "selected": [{ "label": "زمرّدي فاخر (افتراضي)", "value": "emerald", "key": "p-emerald" }],
+            "selected": [
+                {
+                    "label": "زمرّدي فاخر (افتراضي)",
+                    "value": "emerald",
+                    "key": "p-emerald"
+                }
+            ],
             "options": [
-                { "label": "زمرّدي فاخر / Luxe Emerald", "value": "emerald", "key": "p-emerald" },
-                { "label": "أسود وذهبي / Onyx & Gold", "value": "onyx", "key": "p-onyx" },
-                { "label": "وردي هادئ / Soft Rosé", "value": "rose", "key": "p-rose" },
-                { "label": "أزرق ملكي / Royal Blue", "value": "royal", "key": "p-royal" },
-                { "label": "بيج اسكندنافي / Nordic Sand", "value": "sand", "key": "p-sand" },
-                { "label": "بنفسجي عصري / Modern Violet", "value": "violet", "key": "p-violet" },
-                { "label": "مخصص (تحكم يدوي) / Custom", "value": "custom", "key": "p-custom" }
+                {
+                    "label": "زمرّدي فاخر / Luxe Emerald",
+                    "value": "emerald",
+                    "key": "p-emerald"
+                },
+                {
+                    "label": "أسود وذهبي / Onyx & Gold",
+                    "value": "onyx",
+                    "key": "p-onyx"
+                },
+                {
+                    "label": "وردي هادئ / Soft Rosé",
+                    "value": "rose",
+                    "key": "p-rose"
+                },
+                {
+                    "label": "أزرق ملكي / Royal Blue",
+                    "value": "royal",
+                    "key": "p-royal"
+                },
+                {
+                    "label": "بيج اسكندنافي / Nordic Sand",
+                    "value": "sand",
+                    "key": "p-sand"
+                },
+                {
+                    "label": "بنفسجي عصري / Modern Violet",
+                    "value": "violet",
+                    "key": "p-violet"
+                },
+                {
+                    "label": "مخصص (تحكم يدوي) / Custom",
+                    "value": "custom",
+                    "key": "p-custom"
+                }
             ]
         },
-        { "type": "static", "format": "line", "id": "ln-0" },
-        { "type": "static", "format": "title", "id": "grp-typography", "value": "<h6 style='background:#0f1115;color:#fff;padding:12px 16px;border-radius:10px;margin-bottom:14px;font-weight:700'>🅰️ الطباعة / Typography</h6>" },
+        {
+            "type": "static",
+            "format": "line",
+            "id": "ln-0"
+        },
+        {
+            "type": "static",
+            "format": "title",
+            "id": "grp-typography",
+            "value": "<h6 style='background:#0f1115;color:#fff;padding:12px 16px;border-radius:10px;margin-bottom:14px;font-weight:700'>🅰️ الطباعة / Typography</h6>"
+        },
         {
             "id": "heading_font",
             "type": "items",
@@ -61,19 +107,57 @@
             "description": "اختر خطاً مميزاً للعناوين (يدعم الخطوط العربية وGoogle Fonts).",
             "source": "Manual",
             "required": false,
-            "selected": [{ "label": "خط الثيم الافتراضي", "value": "", "key": "f-default" }],
+            "selected": [
+                {
+                    "label": "خط الثيم الافتراضي",
+                    "value": "",
+                    "key": "f-default"
+                }
+            ],
             "options": [
-                { "label": "خط الثيم الافتراضي / Theme default", "value": "", "key": "f-default" },
-                { "label": "DIN Next Arabic", "value": "DINNextLTArabic-Regular", "key": "f-din" },
-                { "label": "Dubai", "value": "Dubai", "key": "f-dubai" },
-                { "label": "Estedad", "value": "Estedad", "key": "f-estedad" },
-                { "label": "Inter (Google)", "value": "Inter", "key": "f-inter" },
-                { "label": "Plus Jakarta Sans (Google)", "value": "Plus Jakarta Sans", "key": "f-jakarta" }
+                {
+                    "label": "خط الثيم الافتراضي / Theme default",
+                    "value": "",
+                    "key": "f-default"
+                },
+                {
+                    "label": "DIN Next Arabic",
+                    "value": "DINNextLTArabic-Regular",
+                    "key": "f-din"
+                },
+                {
+                    "label": "Dubai",
+                    "value": "Dubai",
+                    "key": "f-dubai"
+                },
+                {
+                    "label": "Estedad",
+                    "value": "Estedad",
+                    "key": "f-estedad"
+                },
+                {
+                    "label": "Inter (Google)",
+                    "value": "Inter",
+                    "key": "f-inter"
+                },
+                {
+                    "label": "Plus Jakarta Sans (Google)",
+                    "value": "Plus Jakarta Sans",
+                    "key": "f-jakarta"
+                }
             ]
         },
-
-        { "type": "static", "format": "line", "id": "ln-1" },
-        { "type": "static", "format": "title", "id": "grp-colors", "value": "<h6 style='background:#0f1115;color:#fff;padding:12px 16px;border-radius:10px;margin:18px 0 14px;font-weight:700'>🎨 الألوان / Colors</h6>" },
+        {
+            "type": "static",
+            "format": "line",
+            "id": "ln-1"
+        },
+        {
+            "type": "static",
+            "format": "title",
+            "id": "grp-colors",
+            "value": "<h6 style='background:#0f1115;color:#fff;padding:12px 16px;border-radius:10px;margin:18px 0 14px;font-weight:700'>🎨 الألوان / Colors</h6>"
+        },
         {
             "id": "accent_color",
             "type": "string",
@@ -85,67 +169,115 @@
             "required": false
         },
         {
-            "type": "boolean", "format": "switch", "icon": "sicon-toggle-off",
+            "type": "boolean",
+            "format": "switch",
+            "icon": "sicon-toggle-off",
             "id": "enable_dark_mode",
             "label": "تفعيل خاصية الوضع الداكن / Enable dark mode",
             "description": "يضيف إمكانية التبديل بين الوضع الفاتح والداكن للزائر.",
-            "value": false, "selected": false
+            "value": false,
+            "selected": false
         },
         {
-            "type": "boolean", "format": "switch", "icon": "sicon-toggle-off",
+            "type": "boolean",
+            "format": "switch",
+            "icon": "sicon-toggle-off",
             "id": "default_dark",
             "label": "اجعل الوضع الداكن افتراضياً / Default to dark",
-            "value": false, "selected": false
+            "value": false,
+            "selected": false
         },
-
-        { "type": "static", "format": "line", "id": "ln-2" },
-        { "type": "static", "format": "title", "id": "grp-layout", "value": "<h6 style='background:#0f1115;color:#fff;padding:12px 16px;border-radius:10px;margin:18px 0 14px;font-weight:700'>📐 التخطيط والمسافات / Layout & Spacing</h6>" },
+        {
+            "type": "static",
+            "format": "line",
+            "id": "ln-2"
+        },
+        {
+            "type": "static",
+            "format": "title",
+            "id": "grp-layout",
+            "value": "<h6 style='background:#0f1115;color:#fff;padding:12px 16px;border-radius:10px;margin:18px 0 14px;font-weight:700'>📐 التخطيط والمسافات / Layout & Spacing</h6>"
+        },
         {
             "id": "border_radius",
-            "type": "number", "format": "integer",
+            "type": "number",
+            "format": "integer",
             "label": "انحناء الزوايا (px) / Corner radius",
             "icon": "sicon-pencil-ruler",
             "description": "0 = حواف حادة، 24 = حواف ناعمة جداً.",
-            "value": 16, "minimum": 0, "maximum": 32, "required": false
+            "value": 16,
+            "minimum": 0,
+            "maximum": 32,
+            "required": false
         },
         {
             "id": "container_width",
-            "type": "number", "format": "integer",
+            "type": "number",
+            "format": "integer",
             "label": "أقصى عرض للمحتوى (px) / Container max width",
             "icon": "sicon-layout",
-            "value": 1280, "minimum": 1024, "maximum": 1600, "required": false
+            "value": 1280,
+            "minimum": 1024,
+            "maximum": 1600,
+            "required": false
         },
         {
             "id": "section_spacing",
-            "type": "number", "format": "integer",
+            "type": "number",
+            "format": "integer",
             "label": "المسافة بين الأقسام (px) / Section spacing",
             "icon": "sicon-pencil-ruler",
-            "value": 64, "minimum": 24, "maximum": 120, "required": false
+            "value": 64,
+            "minimum": 24,
+            "maximum": 120,
+            "required": false
         },
-
-        { "type": "static", "format": "line", "id": "ln-3" },
-        { "type": "static", "format": "title", "id": "grp-header", "value": "<h6 style='background:#0f1115;color:#fff;padding:12px 16px;border-radius:10px;margin:18px 0 14px;font-weight:700'>🧭 الهيدر / Header</h6>" },
+        {
+            "type": "static",
+            "format": "line",
+            "id": "ln-3"
+        },
+        {
+            "type": "static",
+            "format": "title",
+            "id": "grp-header",
+            "value": "<h6 style='background:#0f1115;color:#fff;padding:12px 16px;border-radius:10px;margin:18px 0 14px;font-weight:700'>🧭 الهيدر / Header</h6>"
+        },
         {
             "id": "header_is_sticky",
-            "type": "boolean", "format": "switch", "icon": "sicon-toggle-off",
+            "type": "boolean",
+            "format": "switch",
+            "icon": "sicon-toggle-off",
             "label": "تثبيت الهيدر عند التمرير / Sticky header",
-            "value": true, "selected": true, "required": false
+            "value": true,
+            "selected": true,
+            "required": false
         },
         {
             "id": "topnav_is_dark",
-            "type": "boolean", "format": "switch", "icon": "sicon-toggle-off",
+            "type": "boolean",
+            "format": "switch",
+            "icon": "sicon-toggle-off",
             "label": "شريط علوي داكن / Dark top bar",
-            "value": false, "selected": false, "required": false
+            "value": false,
+            "selected": false,
+            "required": false
         },
         {
             "id": "instant_search",
-            "type": "boolean", "format": "switch", "icon": "sicon-toggle-off",
+            "type": "boolean",
+            "format": "switch",
+            "icon": "sicon-toggle-off",
             "label": "البحث الفوري (AJAX) / Instant AJAX search",
-            "value": true, "selected": true, "required": false
+            "value": true,
+            "selected": true,
+            "required": false
         },
         {
             "id": "topbar_text",
-            "type": "string", "format": "text", "multilanguage": true,
+            "type": "string",
+            "format": "text",
+            "multilanguage": true,
             "label": "نص الشريط الإعلاني / Announcement bar text",
             "icon": "sicon-format-text-alt",
             "placeholder": "شحن مجاني للطلبات فوق 200 ر.س",
@@ -153,362 +285,1016 @@
         },
         {
             "id": "topbar_cta",
-            "type": "string", "format": "text", "multilanguage": true,
+            "type": "string",
+            "format": "text",
+            "multilanguage": true,
             "label": "نص زر الشريط الإعلاني / Announcement CTA text",
             "required": false
         },
         {
             "id": "topbar_link",
-            "type": "string", "format": "url",
+            "type": "string",
+            "format": "url",
             "label": "رابط الشريط الإعلاني / Announcement link",
             "required": false
         },
-
-        { "type": "static", "format": "line", "id": "ln-4" },
-        { "type": "static", "format": "title", "id": "grp-mobile", "value": "<h6 style='background:#0f1115;color:#fff;padding:12px 16px;border-radius:10px;margin:18px 0 14px;font-weight:700'>📱 تجربة الجوال / Mobile</h6>" },
+        {
+            "type": "static",
+            "format": "line",
+            "id": "ln-4"
+        },
+        {
+            "type": "static",
+            "format": "title",
+            "id": "grp-mobile",
+            "value": "<h6 style='background:#0f1115;color:#fff;padding:12px 16px;border-radius:10px;margin:18px 0 14px;font-weight:700'>📱 تجربة الجوال / Mobile</h6>"
+        },
         {
             "id": "mobile_bottom_nav",
-            "type": "boolean", "format": "switch", "icon": "sicon-toggle-off",
+            "type": "boolean",
+            "format": "switch",
+            "icon": "sicon-toggle-off",
             "label": "شريط تنقل سفلي (تطبيق أصلي) / Bottom navigation",
-            "value": true, "selected": true, "required": false
+            "value": true,
+            "selected": true,
+            "required": false
         },
         {
             "id": "sticky_add_to_cart",
-            "type": "boolean", "format": "switch", "icon": "sicon-toggle-off",
+            "type": "boolean",
+            "format": "switch",
+            "icon": "sicon-toggle-off",
             "label": "زر الإضافة للسلة الثابت في صفحة المنتج / Sticky add-to-cart",
-            "value": true, "selected": true, "required": false
+            "value": true,
+            "selected": true,
+            "required": false
         },
-
-        { "type": "static", "format": "line", "id": "ln-5" },
-        { "type": "static", "format": "title", "id": "grp-cards", "value": "<h6 style='background:#0f1115;color:#fff;padding:12px 16px;border-radius:10px;margin:18px 0 14px;font-weight:700'>🛍️ بطاقات المنتجات / Product Cards</h6>" },
+        {
+            "type": "static",
+            "format": "line",
+            "id": "ln-5"
+        },
+        {
+            "type": "static",
+            "format": "title",
+            "id": "grp-cards",
+            "value": "<h6 style='background:#0f1115;color:#fff;padding:12px 16px;border-radius:10px;margin:18px 0 14px;font-weight:700'>🛍️ بطاقات المنتجات / Product Cards</h6>"
+        },
         {
             "id": "card_quick_add",
-            "type": "boolean", "format": "switch", "icon": "sicon-toggle-off",
+            "type": "boolean",
+            "format": "switch",
+            "icon": "sicon-toggle-off",
             "label": "إضافة سريعة من البطاقة / Quick add on card",
-            "value": true, "selected": true, "required": false
+            "value": true,
+            "selected": true,
+            "required": false
         },
         {
             "id": "card_hover_image",
-            "type": "boolean", "format": "switch", "icon": "sicon-toggle-off",
+            "type": "boolean",
+            "format": "switch",
+            "icon": "sicon-toggle-off",
             "label": "إظهار الصورة الثانية عند المرور / 2nd image on hover",
-            "value": true, "selected": true, "required": false
+            "value": true,
+            "selected": true,
+            "required": false
         },
         {
             "id": "notify_when_available_in_card",
-            "type": "boolean", "format": "switch", "icon": "sicon-toggle-off",
+            "type": "boolean",
+            "format": "switch",
+            "icon": "sicon-toggle-off",
             "label": "زر (أبلغني عند التوفر) في البطاقة / Notify when available",
-            "value": true, "selected": true, "required": false
+            "value": true,
+            "selected": true,
+            "required": false
         },
-
-        { "type": "static", "format": "line", "id": "ln-6" },
-        { "type": "static", "format": "title", "id": "grp-pdp", "value": "<h6 style='background:#0f1115;color:#fff;padding:12px 16px;border-radius:10px;margin:18px 0 14px;font-weight:700'>📦 صفحة المنتج / Product Page</h6>" },
+        {
+            "type": "static",
+            "format": "line",
+            "id": "ln-6"
+        },
+        {
+            "type": "static",
+            "format": "title",
+            "id": "grp-pdp",
+            "value": "<h6 style='background:#0f1115;color:#fff;padding:12px 16px;border-radius:10px;margin:18px 0 14px;font-weight:700'>📦 صفحة المنتج / Product Page</h6>"
+        },
         {
             "id": "product_image_zoom",
-            "type": "boolean", "format": "switch", "icon": "sicon-toggle-off",
+            "type": "boolean",
+            "format": "switch",
+            "icon": "sicon-toggle-off",
             "label": "تكبير صورة المنتج / Image zoom",
-            "value": true, "selected": true, "required": false
+            "value": true,
+            "selected": true,
+            "required": false
         },
         {
             "id": "show_free_shipping_notice",
-            "type": "boolean", "format": "switch", "icon": "sicon-toggle-off",
+            "type": "boolean",
+            "format": "switch",
+            "icon": "sicon-toggle-off",
             "label": "إشعار الشحن المجاني / Free shipping notice",
-            "value": true, "selected": true, "required": false
+            "value": true,
+            "selected": true,
+            "required": false
         },
         {
             "id": "show_delivery_estimate",
-            "type": "boolean", "format": "switch", "icon": "sicon-toggle-off",
+            "type": "boolean",
+            "format": "switch",
+            "icon": "sicon-toggle-off",
             "label": "تقدير وقت التوصيل / Delivery estimate",
-            "value": true, "selected": true, "required": false
+            "value": true,
+            "selected": true,
+            "required": false
         },
-
-        { "type": "static", "format": "line", "id": "ln-7" },
-        { "type": "static", "format": "title", "id": "grp-cart", "value": "<h6 style='background:#0f1115;color:#fff;padding:12px 16px;border-radius:10px;margin:18px 0 14px;font-weight:700'>🛒 السلة والتحويل / Cart & Conversion</h6>" },
+        {
+            "type": "static",
+            "format": "line",
+            "id": "ln-7"
+        },
+        {
+            "type": "static",
+            "format": "title",
+            "id": "grp-cart",
+            "value": "<h6 style='background:#0f1115;color:#fff;padding:12px 16px;border-radius:10px;margin:18px 0 14px;font-weight:700'>🛒 السلة والتحويل / Cart & Conversion</h6>"
+        },
         {
             "id": "free_shipping_threshold",
-            "type": "number", "format": "integer",
+            "type": "number",
+            "format": "integer",
             "label": "حد الشحن المجاني (شريط التقدم) / Free shipping threshold",
             "icon": "sicon-truck-fast",
             "description": "0 لتعطيل شريط تقدم الشحن المجاني.",
-            "value": 200, "minimum": 0, "maximum": 100000, "required": false
+            "value": 200,
+            "minimum": 0,
+            "maximum": 100000,
+            "required": false
         },
         {
             "id": "enable_add_product_toast",
-            "type": "boolean", "format": "switch", "icon": "sicon-toggle-off",
+            "type": "boolean",
+            "format": "switch",
+            "icon": "sicon-toggle-off",
             "label": "إشعار منبثق عند الإضافة للسلة / Add-to-cart toast",
-            "value": true, "selected": true, "required": false
+            "value": true,
+            "selected": true,
+            "required": false
         },
-
-        { "type": "static", "format": "line", "id": "ln-8" },
-        { "type": "static", "format": "title", "id": "grp-footer", "value": "<h6 style='background:#0f1115;color:#fff;padding:12px 16px;border-radius:10px;margin:18px 0 14px;font-weight:700'>🦶 الفوتر / Footer</h6>" },
+        {
+            "type": "static",
+            "format": "line",
+            "id": "ln-8"
+        },
+        {
+            "type": "static",
+            "format": "title",
+            "id": "grp-footer",
+            "value": "<h6 style='background:#0f1115;color:#fff;padding:12px 16px;border-radius:10px;margin:18px 0 14px;font-weight:700'>🦶 الفوتر / Footer</h6>"
+        },
         {
             "id": "footer_is_dark",
-            "type": "boolean", "format": "switch", "icon": "sicon-toggle-off",
+            "type": "boolean",
+            "format": "switch",
+            "icon": "sicon-toggle-off",
             "label": "فوتر داكن / Dark footer",
-            "value": true, "selected": true, "required": false
+            "value": true,
+            "selected": true,
+            "required": false
         },
         {
             "id": "show_trust_badges",
-            "type": "boolean", "format": "switch", "icon": "sicon-toggle-off",
+            "type": "boolean",
+            "format": "switch",
+            "icon": "sicon-toggle-off",
             "label": "شارات الثقة / Trust badges",
-            "value": true, "selected": true, "required": false
+            "value": true,
+            "selected": true,
+            "required": false
         },
         {
             "id": "show_newsletter",
-            "type": "boolean", "format": "switch", "icon": "sicon-toggle-off",
+            "type": "boolean",
+            "format": "switch",
+            "icon": "sicon-toggle-off",
             "label": "النشرة البريدية / Newsletter block",
-            "value": true, "selected": true, "required": false
+            "value": true,
+            "selected": true,
+            "required": false
         },
         {
             "id": "newsletter_title",
-            "type": "string", "format": "text", "multilanguage": true,
-            "label": "عنوان النشرة / Newsletter title", "required": false
+            "type": "string",
+            "format": "text",
+            "multilanguage": true,
+            "label": "عنوان النشرة / Newsletter title",
+            "required": false
         },
         {
             "id": "newsletter_sub",
-            "type": "string", "format": "textarea", "multilanguage": true,
-            "label": "وصف النشرة / Newsletter subtitle", "required": false
+            "type": "string",
+            "format": "textarea",
+            "multilanguage": true,
+            "label": "وصف النشرة / Newsletter subtitle",
+            "required": false
         },
-
-        { "type": "static", "format": "line", "id": "ln-9" },
-        { "type": "static", "format": "title", "id": "grp-motion", "value": "<h6 style='background:#0f1115;color:#fff;padding:12px 16px;border-radius:10px;margin:18px 0 14px;font-weight:700'>✨ الحركة والأداء / Motion & Performance</h6>" },
+        {
+            "type": "static",
+            "format": "line",
+            "id": "ln-9"
+        },
+        {
+            "type": "static",
+            "format": "title",
+            "id": "grp-motion",
+            "value": "<h6 style='background:#0f1115;color:#fff;padding:12px 16px;border-radius:10px;margin:18px 0 14px;font-weight:700'>✨ الحركة والأداء / Motion & Performance</h6>"
+        },
         {
             "id": "enable_animations",
-            "type": "boolean", "format": "switch", "icon": "sicon-toggle-off",
+            "type": "boolean",
+            "format": "switch",
+            "icon": "sicon-toggle-off",
             "label": "تفعيل حركات الظهور / Scroll reveal animations",
             "description": "تُحترم تلقائياً تفضيلات تقليل الحركة لدى المستخدم.",
-            "value": true, "selected": true, "required": false
+            "value": true,
+            "selected": true,
+            "required": false
         },
         {
             "id": "enable_alpine",
-            "type": "boolean", "format": "switch", "icon": "sicon-toggle-off",
+            "type": "boolean",
+            "format": "switch",
+            "icon": "sicon-toggle-off",
             "label": "تحميل Alpine.js (للتفاعلات المتقدمة) / Load Alpine.js",
-            "value": false, "selected": false, "required": false
+            "value": false,
+            "selected": false,
+            "required": false
         }
     ],
-
     "components": [
         {
             "key": "lumina-hero",
-            "title": { "ar": "البانر الرئيسي", "en": "Hero Banner" },
+            "title": {
+                "ar": "البانر الرئيسي",
+                "en": "Hero Banner"
+            },
             "icon": "sicon-image",
             "path": "home.hero",
             "fields": [
-                { "id": "eyebrow", "type": "string", "format": "text", "multilanguage": true, "label": "نص علوي صغير / Eyebrow", "icon": "sicon-format-text-alt", "required": false },
-                { "id": "title", "type": "string", "format": "text", "multilanguage": true, "label": "العنوان الرئيسي / Title", "icon": "sicon-format-text-alt", "required": true },
-                { "id": "subtitle", "type": "string", "format": "textarea", "multilanguage": true, "label": "الوصف / Subtitle", "required": false },
-                { "id": "image", "type": "string", "format": "image", "label": "الصورة / Image", "icon": "sicon-image", "description": "المقاس المثالي 900×1000 بكسل", "required": false },
-                { "id": "cta_text", "type": "string", "format": "text", "multilanguage": true, "label": "نص الزر الأساسي / Primary button", "required": false },
-                { "id": "cta_url", "type": "string", "format": "url", "label": "رابط الزر الأساسي / Primary URL", "required": false },
-                { "id": "cta2_text", "type": "string", "format": "text", "multilanguage": true, "label": "نص الزر الثانوي / Secondary button", "required": false },
-                { "id": "cta2_url", "type": "string", "format": "url", "label": "رابط الزر الثانوي / Secondary URL", "required": false },
                 {
-                    "id": "layout", "type": "items", "format": "dropdown-list", "label": "نمط العرض / Layout", "icon": "sicon-layout",
-                    "source": "Manual", "required": false,
-                    "selected": [{ "label": "مقسوم (صورة + نص)", "value": "split", "key": "h-split" }],
+                    "id": "eyebrow",
+                    "type": "string",
+                    "format": "text",
+                    "multilanguage": true,
+                    "label": "نص علوي صغير / Eyebrow",
+                    "icon": "sicon-format-text-alt",
+                    "required": false,
+                    "value": "jتجربة",
+                    "description": "هذا نص للتجربة"
+                },
+                {
+                    "id": "title",
+                    "type": "string",
+                    "format": "text",
+                    "multilanguage": true,
+                    "label": "العنوان الرئيسي / Title",
+                    "icon": "sicon-format-text-alt",
+                    "required": true,
+                    "value": "تجربتي"
+                },
+                {
+                    "id": "subtitle",
+                    "type": "string",
+                    "format": "textarea",
+                    "multilanguage": true,
+                    "label": "الوصف / Subtitle",
+                    "required": false,
+                    "value": "يبيلثقثقثبل"
+                },
+                {
+                    "id": "image",
+                    "type": "string",
+                    "format": "image",
+                    "label": "الصورة / Image",
+                    "icon": "sicon-image",
+                    "description": "المقاس المثالي 900×1000 بكسل",
+                    "required": false
+                },
+                {
+                    "id": "cta_text",
+                    "type": "string",
+                    "format": "text",
+                    "multilanguage": true,
+                    "label": "نص الزر الأساسي / Primary button",
+                    "required": false
+                },
+                {
+                    "id": "cta_url",
+                    "type": "string",
+                    "format": "url",
+                    "label": "رابط الزر الأساسي / Primary URL",
+                    "required": false
+                },
+                {
+                    "id": "cta2_text",
+                    "type": "string",
+                    "format": "text",
+                    "multilanguage": true,
+                    "label": "نص الزر الثانوي / Secondary button",
+                    "required": false
+                },
+                {
+                    "id": "cta2_url",
+                    "type": "string",
+                    "format": "url",
+                    "label": "رابط الزر الثانوي / Secondary URL",
+                    "required": false
+                },
+                {
+                    "id": "layout",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "نمط العرض / Layout",
+                    "icon": "sicon-layout",
+                    "source": "Manual",
+                    "required": false,
+                    "selected": [
+                        {
+                            "label": "مقسوم (صورة + نص)",
+                            "value": "split",
+                            "key": "h-split"
+                        }
+                    ],
                     "options": [
-                        { "label": "مقسوم (صورة + نص) / Split", "value": "split", "key": "h-split" },
-                        { "label": "موسّط / Centered", "value": "centered", "key": "h-center" }
+                        {
+                            "label": "مقسوم (صورة + نص) / Split",
+                            "value": "split",
+                            "key": "h-split"
+                        },
+                        {
+                            "label": "موسّط / Centered",
+                            "value": "centered",
+                            "key": "h-center"
+                        }
                     ]
                 }
             ]
         },
         {
             "key": "lumina-featcat-0002",
-            "title": { "ar": "التصنيفات المميزة", "en": "Featured Categories" },
+            "title": {
+                "ar": "التصنيفات المميزة",
+                "en": "Featured Categories"
+            },
             "icon": "sicon-layout-grid-rearrange",
             "path": "home.featured-categories",
             "fields": [
-                { "id": "title", "type": "string", "format": "text", "multilanguage": true, "label": "العنوان / Title", "required": false },
-                { "id": "subtitle", "type": "string", "format": "text", "multilanguage": true, "label": "نص علوي / Eyebrow", "required": false },
                 {
-                    "id": "items", "type": "collection", "format": "collection", "label": "التصنيفات / Categories",
-                    "icon": "sicon-list-add", "item_label": "تصنيف", "required": true, "minLength": 2, "maxLength": 12,
+                    "id": "title",
+                    "type": "string",
+                    "format": "text",
+                    "multilanguage": true,
+                    "label": "العنوان / Title",
+                    "required": false
+                },
+                {
+                    "id": "subtitle",
+                    "type": "string",
+                    "format": "text",
+                    "multilanguage": true,
+                    "label": "نص علوي / Eyebrow",
+                    "required": false
+                },
+                {
+                    "id": "items",
+                    "type": "collection",
+                    "format": "collection",
+                    "label": "التصنيفات / Categories",
+                    "icon": "sicon-list-add",
+                    "item_label": "تصنيف",
+                    "required": true,
+                    "minLength": 2,
+                    "maxLength": 12,
                     "fields": [
-                        { "id": "items.title", "type": "string", "format": "text", "multilanguage": true, "label": "الاسم / Title", "required": true },
-                        { "id": "items.image", "type": "string", "format": "image", "label": "الصورة / Image", "description": "مربعة 400×400", "required": true },
-                        { "id": "items.url", "type": "string", "format": "url", "label": "الرابط / URL", "required": true }
+                        {
+                            "id": "items.title",
+                            "type": "string",
+                            "format": "text",
+                            "multilanguage": true,
+                            "label": "الاسم / Title",
+                            "required": true
+                        },
+                        {
+                            "id": "items.image",
+                            "type": "string",
+                            "format": "image",
+                            "label": "الصورة / Image",
+                            "description": "مربعة 400×400",
+                            "required": true
+                        },
+                        {
+                            "id": "items.url",
+                            "type": "string",
+                            "format": "url",
+                            "label": "الرابط / URL",
+                            "required": true
+                        }
                     ]
                 }
             ]
         },
         {
             "key": "lumina-pslider-0003",
-            "title": { "ar": "شريط منتجات (الأكثر مبيعاً / الجديد)", "en": "Products Slider" },
+            "title": {
+                "ar": "شريط منتجات (الأكثر مبيعاً / الجديد)",
+                "en": "Products Slider"
+            },
             "icon": "sicon-bag-happy",
             "path": "home.products-slider",
             "fields": [
-                { "id": "title", "type": "string", "format": "text", "multilanguage": true, "label": "العنوان / Title", "required": true },
-                { "id": "subtitle", "type": "string", "format": "text", "multilanguage": true, "label": "نص علوي / Eyebrow", "required": false },
                 {
-                    "id": "source", "type": "items", "format": "dropdown-list", "label": "مصدر المنتجات / Source",
-                    "source": "Manual", "required": true,
-                    "selected": [{ "label": "الأكثر مبيعاً", "value": "best_selling", "key": "s-best" }],
+                    "id": "title",
+                    "type": "string",
+                    "format": "text",
+                    "multilanguage": true,
+                    "label": "العنوان / Title",
+                    "required": true
+                },
+                {
+                    "id": "subtitle",
+                    "type": "string",
+                    "format": "text",
+                    "multilanguage": true,
+                    "label": "نص علوي / Eyebrow",
+                    "required": false
+                },
+                {
+                    "id": "source",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "مصدر المنتجات / Source",
+                    "source": "Manual",
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "الأكثر مبيعاً",
+                            "value": "best_selling",
+                            "key": "s-best"
+                        }
+                    ],
                     "options": [
-                        { "label": "الأكثر مبيعاً / Best selling", "value": "best_selling", "key": "s-best" },
-                        { "label": "وصل حديثاً / Latest", "value": "latest", "key": "s-latest" },
-                        { "label": "العروض / On sale", "value": "offers", "key": "s-offers" },
-                        { "label": "تصنيف محدد / Category", "value": "category", "key": "s-cat" },
-                        { "label": "وسم محدد / Tag", "value": "tags", "key": "s-tag" }
+                        {
+                            "label": "الأكثر مبيعاً / Best selling",
+                            "value": "best_selling",
+                            "key": "s-best"
+                        },
+                        {
+                            "label": "وصل حديثاً / Latest",
+                            "value": "latest",
+                            "key": "s-latest"
+                        },
+                        {
+                            "label": "العروض / On sale",
+                            "value": "offers",
+                            "key": "s-offers"
+                        },
+                        {
+                            "label": "تصنيف محدد / Category",
+                            "value": "category",
+                            "key": "s-cat"
+                        },
+                        {
+                            "label": "وسم محدد / Tag",
+                            "value": "tags",
+                            "key": "s-tag"
+                        }
                     ]
                 },
-                { "id": "source_value", "type": "string", "format": "text", "label": "قيمة المصدر (معرّف التصنيف/الوسم) / Source value", "required": false },
-                { "id": "url", "type": "string", "format": "url", "label": "رابط (عرض الكل) / View-all URL", "required": false },
-                { "id": "cta", "type": "string", "format": "text", "multilanguage": true, "label": "نص (عرض الكل) / View-all text", "required": false }
+                {
+                    "id": "source_value",
+                    "type": "string",
+                    "format": "text",
+                    "label": "قيمة المصدر (معرّف التصنيف/الوسم) / Source value",
+                    "required": false
+                },
+                {
+                    "id": "url",
+                    "type": "string",
+                    "format": "url",
+                    "label": "رابط (عرض الكل) / View-all URL",
+                    "required": false
+                },
+                {
+                    "id": "cta",
+                    "type": "string",
+                    "format": "text",
+                    "multilanguage": true,
+                    "label": "نص (عرض الكل) / View-all text",
+                    "required": false
+                }
             ]
         },
         {
             "key": "lumina-flash-0004",
-            "title": { "ar": "عروض سريعة بعدّاد", "en": "Flash Offers" },
+            "title": {
+                "ar": "عروض سريعة بعدّاد",
+                "en": "Flash Offers"
+            },
             "icon": "sicon-discount",
             "path": "home.flash-offers",
             "fields": [
-                { "id": "title", "type": "string", "format": "text", "multilanguage": true, "label": "العنوان / Title", "required": true },
-                { "id": "ends_at", "type": "string", "format": "text", "label": "ينتهي في (YYYY-MM-DD HH:mm) / Ends at", "placeholder": "2026-12-31 23:59", "required": false },
                 {
-                    "id": "source", "type": "items", "format": "dropdown-list", "label": "المصدر / Source",
-                    "source": "Manual", "required": true,
-                    "selected": [{ "label": "العروض", "value": "offers", "key": "f-offers" }],
+                    "id": "title",
+                    "type": "string",
+                    "format": "text",
+                    "multilanguage": true,
+                    "label": "العنوان / Title",
+                    "required": true
+                },
+                {
+                    "id": "ends_at",
+                    "type": "string",
+                    "format": "text",
+                    "label": "ينتهي في (YYYY-MM-DD HH:mm) / Ends at",
+                    "placeholder": "2026-12-31 23:59",
+                    "required": false
+                },
+                {
+                    "id": "source",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "المصدر / Source",
+                    "source": "Manual",
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "العروض",
+                            "value": "offers",
+                            "key": "f-offers"
+                        }
+                    ],
                     "options": [
-                        { "label": "العروض / On sale", "value": "offers", "key": "f-offers" },
-                        { "label": "وسم / Tag", "value": "tags", "key": "f-tag" },
-                        { "label": "تصنيف / Category", "value": "category", "key": "f-cat" }
+                        {
+                            "label": "العروض / On sale",
+                            "value": "offers",
+                            "key": "f-offers"
+                        },
+                        {
+                            "label": "وسم / Tag",
+                            "value": "tags",
+                            "key": "f-tag"
+                        },
+                        {
+                            "label": "تصنيف / Category",
+                            "value": "category",
+                            "key": "f-cat"
+                        }
                     ]
                 },
-                { "id": "source_value", "type": "string", "format": "text", "label": "قيمة المصدر / Source value", "required": false }
+                {
+                    "id": "source_value",
+                    "type": "string",
+                    "format": "text",
+                    "label": "قيمة المصدر / Source value",
+                    "required": false
+                }
             ]
         },
         {
             "key": "lumina-brands-0005",
-            "title": { "ar": "العلامات التجارية", "en": "Brand Showcase" },
+            "title": {
+                "ar": "العلامات التجارية",
+                "en": "Brand Showcase"
+            },
             "icon": "sicon-award-ribbon",
             "path": "home.brand-showcase",
             "fields": [
-                { "id": "title", "type": "string", "format": "text", "multilanguage": true, "label": "العنوان / Title", "required": false },
                 {
-                    "id": "brands", "type": "collection", "format": "collection", "label": "العلامات / Brands",
-                    "icon": "sicon-list-add", "item_label": "علامة", "required": true, "minLength": 2, "maxLength": 20,
+                    "id": "title",
+                    "type": "string",
+                    "format": "text",
+                    "multilanguage": true,
+                    "label": "العنوان / Title",
+                    "required": false
+                },
+                {
+                    "id": "brands",
+                    "type": "collection",
+                    "format": "collection",
+                    "label": "العلامات / Brands",
+                    "icon": "sicon-list-add",
+                    "item_label": "علامة",
+                    "required": true,
+                    "minLength": 2,
+                    "maxLength": 20,
                     "fields": [
-                        { "id": "brands.name", "type": "string", "format": "text", "label": "الاسم / Name", "required": true },
-                        { "id": "brands.logo", "type": "string", "format": "image", "label": "الشعار / Logo", "required": true },
-                        { "id": "brands.url", "type": "string", "format": "url", "label": "الرابط / URL", "required": false }
+                        {
+                            "id": "brands.name",
+                            "type": "string",
+                            "format": "text",
+                            "label": "الاسم / Name",
+                            "required": true
+                        },
+                        {
+                            "id": "brands.logo",
+                            "type": "string",
+                            "format": "image",
+                            "label": "الشعار / Logo",
+                            "required": true
+                        },
+                        {
+                            "id": "brands.url",
+                            "type": "string",
+                            "format": "url",
+                            "label": "الرابط / URL",
+                            "required": false
+                        }
                     ]
                 }
             ]
         },
         {
             "key": "lumina-stats-0006",
-            "title": { "ar": "أرقام وإحصائيات", "en": "Statistics" },
+            "title": {
+                "ar": "أرقام وإحصائيات",
+                "en": "Statistics"
+            },
             "icon": "sicon-chart-bar",
             "path": "home.stats",
             "fields": [
                 {
-                    "id": "items", "type": "collection", "format": "collection", "label": "الإحصائيات / Stats",
-                    "icon": "sicon-list-add", "item_label": "رقم", "required": true, "minLength": 2, "maxLength": 4,
+                    "id": "items",
+                    "type": "collection",
+                    "format": "collection",
+                    "label": "الإحصائيات / Stats",
+                    "icon": "sicon-list-add",
+                    "item_label": "رقم",
+                    "required": true,
+                    "minLength": 2,
+                    "maxLength": 4,
                     "fields": [
-                        { "id": "items.value", "type": "string", "format": "text", "label": "القيمة / Value", "placeholder": "+10000", "required": true },
-                        { "id": "items.label", "type": "string", "format": "text", "multilanguage": true, "label": "الوصف / Label", "required": true }
+                        {
+                            "id": "items.value",
+                            "type": "string",
+                            "format": "text",
+                            "label": "القيمة / Value",
+                            "placeholder": "+10000",
+                            "required": true
+                        },
+                        {
+                            "id": "items.label",
+                            "type": "string",
+                            "format": "text",
+                            "multilanguage": true,
+                            "label": "الوصف / Label",
+                            "required": true
+                        }
                     ]
                 }
             ]
         },
         {
             "key": "lumina-testi-0007",
-            "title": { "ar": "آراء العملاء", "en": "Testimonials" },
+            "title": {
+                "ar": "آراء العملاء",
+                "en": "Testimonials"
+            },
             "icon": "sicon-chat-bubbles",
             "path": "home.testimonials",
             "fields": [
-                { "id": "title", "type": "string", "format": "text", "multilanguage": true, "label": "العنوان / Title", "required": false },
                 {
-                    "id": "items", "type": "collection", "format": "collection", "label": "التقييمات / Reviews",
-                    "icon": "sicon-list-add", "item_label": "تقييم", "required": true, "minLength": 1, "maxLength": 12,
+                    "id": "title",
+                    "type": "string",
+                    "format": "text",
+                    "multilanguage": true,
+                    "label": "العنوان / Title",
+                    "required": false
+                },
+                {
+                    "id": "items",
+                    "type": "collection",
+                    "format": "collection",
+                    "label": "التقييمات / Reviews",
+                    "icon": "sicon-list-add",
+                    "item_label": "تقييم",
+                    "required": true,
+                    "minLength": 1,
+                    "maxLength": 12,
                     "fields": [
-                        { "id": "items.name", "type": "string", "format": "text", "label": "اسم العميل / Name", "required": true },
-                        { "id": "items.avatar", "type": "string", "format": "image", "label": "الصورة / Avatar", "description": "68×68", "required": false },
-                        { "id": "items.stars", "type": "number", "format": "integer", "label": "النجوم (1-5) / Stars", "value": 5, "minimum": 1, "maximum": 5, "required": false },
-                        { "id": "items.text", "type": "string", "format": "textarea", "multilanguage": true, "label": "النص / Text", "required": true }
+                        {
+                            "id": "items.name",
+                            "type": "string",
+                            "format": "text",
+                            "label": "اسم العميل / Name",
+                            "required": true
+                        },
+                        {
+                            "id": "items.avatar",
+                            "type": "string",
+                            "format": "image",
+                            "label": "الصورة / Avatar",
+                            "description": "68×68",
+                            "required": false
+                        },
+                        {
+                            "id": "items.stars",
+                            "type": "number",
+                            "format": "integer",
+                            "label": "النجوم (1-5) / Stars",
+                            "value": 5,
+                            "minimum": 1,
+                            "maximum": 5,
+                            "required": false
+                        },
+                        {
+                            "id": "items.text",
+                            "type": "string",
+                            "format": "textarea",
+                            "multilanguage": true,
+                            "label": "النص / Text",
+                            "required": true
+                        }
                     ]
                 }
             ]
         },
         {
             "key": "lumina-gallery-0008",
-            "title": { "ar": "معرض صور (انستقرام)", "en": "Instagram Gallery" },
+            "title": {
+                "ar": "معرض صور (انستقرام)",
+                "en": "Instagram Gallery"
+            },
             "icon": "sicon-instagram",
             "path": "home.gallery",
             "fields": [
-                { "id": "title", "type": "string", "format": "text", "multilanguage": true, "label": "العنوان / Title", "required": false },
-                { "id": "subtitle", "type": "string", "format": "text", "multilanguage": true, "label": "نص علوي / Eyebrow", "required": false },
                 {
-                    "id": "items", "type": "collection", "format": "collection", "label": "الصور / Images",
-                    "icon": "sicon-list-add", "item_label": "صورة", "required": true, "minLength": 2, "maxLength": 12,
+                    "id": "title",
+                    "type": "string",
+                    "format": "text",
+                    "multilanguage": true,
+                    "label": "العنوان / Title",
+                    "required": false
+                },
+                {
+                    "id": "subtitle",
+                    "type": "string",
+                    "format": "text",
+                    "multilanguage": true,
+                    "label": "نص علوي / Eyebrow",
+                    "required": false
+                },
+                {
+                    "id": "items",
+                    "type": "collection",
+                    "format": "collection",
+                    "label": "الصور / Images",
+                    "icon": "sicon-list-add",
+                    "item_label": "صورة",
+                    "required": true,
+                    "minLength": 2,
+                    "maxLength": 12,
                     "fields": [
-                        { "id": "items.image", "type": "string", "format": "image", "label": "الصورة / Image", "description": "مربعة 400×400", "required": true },
-                        { "id": "items.url", "type": "string", "format": "url", "label": "الرابط / URL", "required": false }
+                        {
+                            "id": "items.image",
+                            "type": "string",
+                            "format": "image",
+                            "label": "الصورة / Image",
+                            "description": "مربعة 400×400",
+                            "required": true
+                        },
+                        {
+                            "id": "items.url",
+                            "type": "string",
+                            "format": "url",
+                            "label": "الرابط / URL",
+                            "required": false
+                        }
                     ]
                 }
             ]
         },
         {
             "key": "lumina-split-0009",
-            "title": { "ar": "بانر مزدوج", "en": "Split Banner" },
+            "title": {
+                "ar": "بانر مزدوج",
+                "en": "Split Banner"
+            },
             "icon": "sicon-layout-grid-rearrange",
             "path": "home.split-banner",
             "fields": [
                 {
-                    "id": "banners", "type": "collection", "format": "collection", "label": "البانرات / Banners",
-                    "icon": "sicon-list-add", "item_label": "بانر", "required": true, "minLength": 2, "maxLength": 2,
+                    "id": "banners",
+                    "type": "collection",
+                    "format": "collection",
+                    "label": "البانرات / Banners",
+                    "icon": "sicon-list-add",
+                    "item_label": "بانر",
+                    "required": true,
+                    "minLength": 2,
+                    "maxLength": 2,
                     "fields": [
-                        { "id": "banners.image", "type": "string", "format": "image", "label": "الصورة / Image", "description": "640×420", "required": true },
-                        { "id": "banners.eyebrow", "type": "string", "format": "text", "multilanguage": true, "label": "نص علوي / Eyebrow", "required": false },
-                        { "id": "banners.title", "type": "string", "format": "text", "multilanguage": true, "label": "العنوان / Title", "required": true },
-                        { "id": "banners.cta", "type": "string", "format": "text", "multilanguage": true, "label": "نص الزر / CTA", "required": false },
-                        { "id": "banners.url", "type": "string", "format": "url", "label": "الرابط / URL", "required": false }
+                        {
+                            "id": "banners.image",
+                            "type": "string",
+                            "format": "image",
+                            "label": "الصورة / Image",
+                            "description": "640×420",
+                            "required": true
+                        },
+                        {
+                            "id": "banners.eyebrow",
+                            "type": "string",
+                            "format": "text",
+                            "multilanguage": true,
+                            "label": "نص علوي / Eyebrow",
+                            "required": false
+                        },
+                        {
+                            "id": "banners.title",
+                            "type": "string",
+                            "format": "text",
+                            "multilanguage": true,
+                            "label": "العنوان / Title",
+                            "required": true
+                        },
+                        {
+                            "id": "banners.cta",
+                            "type": "string",
+                            "format": "text",
+                            "multilanguage": true,
+                            "label": "نص الزر / CTA",
+                            "required": false
+                        },
+                        {
+                            "id": "banners.url",
+                            "type": "string",
+                            "format": "url",
+                            "label": "الرابط / URL",
+                            "required": false
+                        }
                     ]
                 }
             ]
         },
         {
             "key": "lumina-usp-0010",
-            "title": { "ar": "شريط مزايا المتجر", "en": "Store Features Strip" },
+            "title": {
+                "ar": "شريط مزايا المتجر",
+                "en": "Store Features Strip"
+            },
             "icon": "sicon-star",
             "path": "home.usp-strip",
             "fields": [
                 {
-                    "id": "items", "type": "collection", "format": "collection", "label": "المزايا / Features",
-                    "icon": "sicon-list-add", "item_label": "ميزة", "required": true, "minLength": 2, "maxLength": 4,
+                    "id": "items",
+                    "type": "collection",
+                    "format": "collection",
+                    "label": "المزايا / Features",
+                    "icon": "sicon-list-add",
+                    "item_label": "ميزة",
+                    "required": true,
+                    "minLength": 2,
+                    "maxLength": 4,
                     "fields": [
-                        { "id": "items.icon", "type": "string", "format": "text", "label": "أيقونة (Salla icon) / Icon", "placeholder": "sicon-truck-fast", "icon": "sicon-star", "required": false },
-                        { "id": "items.title", "type": "string", "format": "text", "multilanguage": true, "label": "العنوان / Title", "required": true },
-                        { "id": "items.subtitle", "type": "string", "format": "text", "multilanguage": true, "label": "الوصف / Subtitle", "required": false }
+                        {
+                            "id": "items.icon",
+                            "type": "string",
+                            "format": "text",
+                            "label": "أيقونة (Salla icon) / Icon",
+                            "placeholder": "sicon-truck-fast",
+                            "icon": "sicon-star",
+                            "required": false
+                        },
+                        {
+                            "id": "items.title",
+                            "type": "string",
+                            "format": "text",
+                            "multilanguage": true,
+                            "label": "العنوان / Title",
+                            "required": true
+                        },
+                        {
+                            "id": "items.subtitle",
+                            "type": "string",
+                            "format": "text",
+                            "multilanguage": true,
+                            "label": "الوصف / Subtitle",
+                            "required": false
+                        }
                     ]
                 }
             ]
         },
         {
             "key": "lumina-video-0011",
-            "title": { "ar": "فيديو غامر", "en": "Immersive Video" },
+            "title": {
+                "ar": "فيديو غامر",
+                "en": "Immersive Video"
+            },
             "icon": "sicon-play",
             "path": "home.video",
             "fields": [
-                { "id": "title", "type": "string", "format": "text", "multilanguage": true, "label": "العنوان / Title", "required": false },
-                { "id": "subtitle", "type": "string", "format": "text", "multilanguage": true, "label": "نص علوي / Eyebrow", "required": false },
-                { "id": "youtube_id", "type": "string", "format": "text", "label": "معرّف فيديو يوتيوب / YouTube ID", "placeholder": "dQw4w9WgXcQ", "icon": "sicon-play", "required": false },
-                { "id": "poster", "type": "string", "format": "image", "label": "صورة الغلاف / Poster", "description": "1280×720", "required": false }
+                {
+                    "id": "title",
+                    "type": "string",
+                    "format": "text",
+                    "multilanguage": true,
+                    "label": "العنوان / Title",
+                    "required": false
+                },
+                {
+                    "id": "subtitle",
+                    "type": "string",
+                    "format": "text",
+                    "multilanguage": true,
+                    "label": "نص علوي / Eyebrow",
+                    "required": false
+                },
+                {
+                    "id": "youtube_id",
+                    "type": "string",
+                    "format": "text",
+                    "label": "معرّف فيديو يوتيوب / YouTube ID",
+                    "placeholder": "dQw4w9WgXcQ",
+                    "icon": "sicon-play",
+                    "required": false
+                },
+                {
+                    "id": "poster",
+                    "type": "string",
+                    "format": "image",
+                    "label": "صورة الغلاف / Poster",
+                    "description": "1280×720",
+                    "required": false
+                }
             ]
         },
         {
             "key": "lumina-cdcta-0012",
-            "title": { "ar": "شريط عدّاد كامل العرض", "en": "Full-width Countdown CTA" },
+            "title": {
+                "ar": "شريط عدّاد كامل العرض",
+                "en": "Full-width Countdown CTA"
+            },
             "icon": "sicon-discount",
             "path": "home.countdown-cta",
             "fields": [
-                { "id": "eyebrow", "type": "string", "format": "text", "multilanguage": true, "label": "نص علوي / Eyebrow", "required": false },
-                { "id": "title", "type": "string", "format": "text", "multilanguage": true, "label": "العنوان / Title", "required": true },
-                { "id": "subtitle", "type": "string", "format": "textarea", "multilanguage": true, "label": "الوصف / Subtitle", "required": false },
-                { "id": "ends_at", "type": "string", "format": "text", "label": "ينتهي في (YYYY-MM-DD HH:mm) / Ends at", "placeholder": "2026-12-31 23:59", "required": false },
-                { "id": "bg_image", "type": "string", "format": "image", "label": "صورة الخلفية / Background image", "required": false },
-                { "id": "cta_text", "type": "string", "format": "text", "multilanguage": true, "label": "نص الزر / CTA text", "required": false },
-                { "id": "cta_url", "type": "string", "format": "url", "label": "رابط الزر / CTA URL", "required": false }
+                {
+                    "id": "eyebrow",
+                    "type": "string",
+                    "format": "text",
+                    "multilanguage": true,
+                    "label": "نص علوي / Eyebrow",
+                    "required": false
+                },
+                {
+                    "id": "title",
+                    "type": "string",
+                    "format": "text",
+                    "multilanguage": true,
+                    "label": "العنوان / Title",
+                    "required": true
+                },
+                {
+                    "id": "subtitle",
+                    "type": "string",
+                    "format": "textarea",
+                    "multilanguage": true,
+                    "label": "الوصف / Subtitle",
+                    "required": false
+                },
+                {
+                    "id": "ends_at",
+                    "type": "string",
+                    "format": "text",
+                    "label": "ينتهي في (YYYY-MM-DD HH:mm) / Ends at",
+                    "placeholder": "2026-12-31 23:59",
+                    "required": false
+                },
+                {
+                    "id": "bg_image",
+                    "type": "string",
+                    "format": "image",
+                    "label": "صورة الخلفية / Background image",
+                    "required": false
+                },
+                {
+                    "id": "cta_text",
+                    "type": "string",
+                    "format": "text",
+                    "multilanguage": true,
+                    "label": "نص الزر / CTA text",
+                    "required": false
+                },
+                {
+                    "id": "cta_url",
+                    "type": "string",
+                    "format": "url",
+                    "label": "رابط الزر / CTA URL",
+                    "required": false
+                }
             ]
         }
     ]
