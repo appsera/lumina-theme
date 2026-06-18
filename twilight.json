@@ -288,7 +288,7 @@
 
     "components": [
         {
-            "key": "lumina-hero-0001",
+            "key": "lumina-hero",
             "title": { "ar": "البانر الرئيسي", "en": "Hero Banner" },
             "icon": "sicon-image",
             "path": "home.hero",
