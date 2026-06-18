@@ -31,7 +31,7 @@
             "type": "static",
             "format": "title",
             "id": "grp-presets",
-            "value": "<h6 style='background:linear-gradient(135deg,#0f5f53,#0a463d);color:#fff;padding:14px 16px;border-radius:10px;margin-bottom:14px;font-weight:700'>🎭 الأنماط الجاهزة / Style Presets</h6>"
+            "value": "<h6 >🎭 الأنماط الجاهزة / Style Presets</h6>"
         },
         {
             "id": "style_preset",
@@ -44,9 +44,9 @@
             "required": false,
             "selected": [
                 {
-                    "label": "زمرّدي فاخر (افتراضي)",
-                    "value": "emerald",
-                    "key": "p-emerald"
+                    "label": "أسود وذهبي / Onyx & Gold",
+                    "value": "onyx",
+                    "key": "p-onyx"
                 }
             ],
             "options": [
@@ -96,7 +96,7 @@
             "type": "static",
             "format": "title",
             "id": "grp-typography",
-            "value": "<h6 style='background:#0f1115;color:#fff;padding:12px 16px;border-radius:10px;margin-bottom:14px;font-weight:700'>🅰️ الطباعة / Typography</h6>"
+            "value": "<h6 >🅰️ الطباعة / Typography</h6>"
         },
         {
             "id": "heading_font",
@@ -110,14 +110,14 @@
             "selected": [
                 {
                     "label": "خط الثيم الافتراضي",
-                    "value": "",
+                    "value": null,
                     "key": "f-default"
                 }
             ],
             "options": [
                 {
                     "label": "خط الثيم الافتراضي / Theme default",
-                    "value": "",
+                    "value": null,
                     "key": "f-default"
                 },
                 {
@@ -156,7 +156,7 @@
             "type": "static",
             "format": "title",
             "id": "grp-colors",
-            "value": "<h6 style='background:#0f1115;color:#fff;padding:12px 16px;border-radius:10px;margin:18px 0 14px;font-weight:700'>🎨 الألوان / Colors</h6>"
+            "value": "<h6 >🎨 الألوان / Colors</h6>"
         },
         {
             "id": "accent_color",
@@ -196,7 +196,7 @@
             "type": "static",
             "format": "title",
             "id": "grp-layout",
-            "value": "<h6 style='background:#0f1115;color:#fff;padding:12px 16px;border-radius:10px;margin:18px 0 14px;font-weight:700'>📐 التخطيط والمسافات / Layout & Spacing</h6>"
+            "value": "<h6 >📐 التخطيط والمسافات / Layout & Spacing</h6>"
         },
         {
             "id": "border_radius",
@@ -241,7 +241,7 @@
             "type": "static",
             "format": "title",
             "id": "grp-header",
-            "value": "<h6 style='background:#0f1115;color:#fff;padding:12px 16px;border-radius:10px;margin:18px 0 14px;font-weight:700'>🧭 الهيدر / Header</h6>"
+            "value": "<h6 >🧭 الهيدر / Header</h6>"
         },
         {
             "id": "header_is_sticky",
@@ -307,7 +307,7 @@
             "type": "static",
             "format": "title",
             "id": "grp-mobile",
-            "value": "<h6 style='background:#0f1115;color:#fff;padding:12px 16px;border-radius:10px;margin:18px 0 14px;font-weight:700'>📱 تجربة الجوال / Mobile</h6>"
+            "value": "<h6 >📱 تجربة الجوال / Mobile</h6>"
         },
         {
             "id": "mobile_bottom_nav",
@@ -338,7 +338,7 @@
             "type": "static",
             "format": "title",
             "id": "grp-cards",
-            "value": "<h6 style='background:#0f1115;color:#fff;padding:12px 16px;border-radius:10px;margin:18px 0 14px;font-weight:700'>🛍️ بطاقات المنتجات / Product Cards</h6>"
+            "value": "<h6 >🛍️ بطاقات المنتجات / Product Cards</h6>"
         },
         {
             "id": "card_quick_add",
@@ -379,7 +379,7 @@
             "type": "static",
             "format": "title",
             "id": "grp-pdp",
-            "value": "<h6 style='background:#0f1115;color:#fff;padding:12px 16px;border-radius:10px;margin:18px 0 14px;font-weight:700'>📦 صفحة المنتج / Product Page</h6>"
+            "value": "<h6 >📦 صفحة المنتج / Product Page</h6>"
         },
         {
             "id": "product_image_zoom",
@@ -420,7 +420,7 @@
             "type": "static",
             "format": "title",
             "id": "grp-cart",
-            "value": "<h6 style='background:#0f1115;color:#fff;padding:12px 16px;border-radius:10px;margin:18px 0 14px;font-weight:700'>🛒 السلة والتحويل / Cart & Conversion</h6>"
+            "value": "<h6 >🛒 السلة والتحويل / Cart & Conversion</h6>"
         },
         {
             "id": "free_shipping_threshold",
@@ -453,7 +453,7 @@
             "type": "static",
             "format": "title",
             "id": "grp-footer",
-            "value": "<h6 style='background:#0f1115;color:#fff;padding:12px 16px;border-radius:10px;margin:18px 0 14px;font-weight:700'>🦶 الفوتر / Footer</h6>"
+            "value": "<h6 >🦶 الفوتر / Footer</h6>"
         },
         {
             "id": "footer_is_dark",
@@ -510,7 +510,7 @@
             "type": "static",
             "format": "title",
             "id": "grp-motion",
-            "value": "<h6 style='background:#0f1115;color:#fff;padding:12px 16px;border-radius:10px;margin:18px 0 14px;font-weight:700'>✨ الحركة والأداء / Motion & Performance</h6>"
+            "value": "<h6 >✨ الحركة والأداء / Motion & Performance</h6>"
         },
         {
             "id": "enable_animations",
